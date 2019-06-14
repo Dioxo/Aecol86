@@ -7,4 +7,5 @@
     <string name="activity_login_error_message">Error al iniciar sesión</string>
     <string name="Ac_login_txt_nombre">Nombre</string>
     <string name="Ac_login_txt_telefono">Telefono</string>
+    <string name="Ac_register_error_campo_vacio">Error, campo vacío</string>
 </resources>
