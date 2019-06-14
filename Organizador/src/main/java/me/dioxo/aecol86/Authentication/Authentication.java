@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import me.dioxo.aecol86.NavigationDrawer.NavigationDrawer;
 import me.dioxo.aecol86.R;
 import me.dioxo.aecol86.Register.RegisterActivity;
 
@@ -59,9 +60,9 @@ public class Authentication extends AppCompatActivity implements  Authentication
     }
 
     public void goToNextPage() {
-        /*Intent intent = new Intent(this, ListPersonasActivity.class);
+        Intent intent = new Intent(this, NavigationDrawer.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-        startActivity(intent);*/
+        startActivity(intent);
     }
 
     @Override
