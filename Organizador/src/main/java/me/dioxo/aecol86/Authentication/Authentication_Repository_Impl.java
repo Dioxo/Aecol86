@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import me.dioxo.aecol86.Constantes;
+import me.dioxo.aecol86.Request.LoginRequest;
 import me.dioxo.aecol86.libs.ApplicationContextProvider;
 import me.dioxo.aecol86.libs.EventBus;
 import me.dioxo.aecol86.libs.GreenRobotEventBus;
@@ -28,8 +29,10 @@ public class Authentication_Repository_Impl implements Authentication_Repository
 
     public void confirmerMDP(String email, final String mdp) {
 
+
         Response.Listener<String> responsePositive = response -> {
             try {
+                Log.i("Login",response);
 
                 JSONObject jsonObject = new JSONObject(response);
                 String password = jsonObject.getString("password_organizador");
@@ -54,10 +57,10 @@ public class Authentication_Repository_Impl implements Authentication_Repository
 
     };
 
-        /*LoginRequest loginRequest = new LoginRequest(email,responsePositive,errorListener);
+        LoginRequest loginRequest = new LoginRequest(email,responsePositive,errorListener);
         RequestQueue request = Volley.newRequestQueue(ApplicationContextProvider.getContext());
 
-        request.add(loginRequest);*/
+        request.add(loginRequest);
     }
 
     private void storeUser_id(String id_user) {
