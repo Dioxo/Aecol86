@@ -1,5 +1,6 @@
 package me.dioxo.aecol86.NavigationDrawer;
 
+import android.net.Uri;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -14,12 +15,16 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import me.dioxo.aecol86.ListerEstudiantes.ListerEstudiantes;
+import me.dioxo.aecol86.R;
 
 import android.view.Menu;
 import android.view.MenuItem;
 
 public class NavigationDrawer extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        ListerEstudiantes.OnFragmentInteractionListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +37,8 @@ public class NavigationDrawer extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                //.setAction("Action", null).show();
             }
         });
 
@@ -85,9 +90,14 @@ public class NavigationDrawer extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
+        boolean transition = false;
+        Fragment fragment = null;
+
+        if (id == R.id.nuevos_estudiantes) {
             // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+            transition = true;
+            fragment = new ListerEstudiantes();
+        }/* else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
 
@@ -97,10 +107,26 @@ public class NavigationDrawer extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        }*/
+
+        if(transition){
+
+            getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.screen_area, fragment)
+                    .commit();
+
+            item.setChecked(true);
+
+            getSupportActionBar().setTitle(item.getTitle());
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
