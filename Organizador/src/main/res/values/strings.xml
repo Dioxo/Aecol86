@@ -5,4 +5,6 @@
     <string name="Ac_login_txt_conectarse">Conectarse</string>
     <string name="Ac_login_txt_registrarse">Registrarse</string>
     <string name="activity_login_error_message">Error al iniciar sesión</string>
+    <string name="Ac_login_txt_nombre">Nombre</string>
+    <string name="Ac_login_txt_telefono">Telefono</string>
 </resources>
