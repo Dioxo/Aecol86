@@ -19,7 +19,11 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Register.RegisterActivity"></activity>
+        <activity android:name=".Register.RegisterActivity" />
+        <activity
+            android:name=".NavigationDrawer.NavigationDrawer"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme"></activity>
     </application>
 
 </manifest>
