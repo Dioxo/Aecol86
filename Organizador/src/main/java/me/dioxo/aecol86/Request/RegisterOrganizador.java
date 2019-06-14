@@ -22,6 +22,7 @@ public class RegisterOrganizador extends StringRequest {
         parametres.put("email_organizador", organizador.getEmail());
         parametres.put("nombre_organizador", organizador.getNombre());
         parametres.put("password_organizador", organizador.getPassword());
+        parametres.put("telefono_organizador", organizador.getTelefono());
     }
 
     @Override
