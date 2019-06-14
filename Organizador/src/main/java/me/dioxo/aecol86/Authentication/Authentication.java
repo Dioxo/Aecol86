@@ -5,6 +5,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.dioxo.aecol86.R;
+import me.dioxo.aecol86.Register.RegisterActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -92,6 +93,6 @@ public class Authentication extends AppCompatActivity implements  Authentication
 
     @OnClick(R.id.register)
     public void onRegisterClicked() {
-        //startActivity(new Intent(this, RegisterActivity.class));
+        startActivity(new Intent(this, RegisterActivity.class));
     }
 }
