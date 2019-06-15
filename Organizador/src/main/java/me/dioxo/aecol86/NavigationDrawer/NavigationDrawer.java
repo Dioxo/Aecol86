@@ -1,5 +1,7 @@
 package me.dioxo.aecol86.NavigationDrawer;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 
@@ -16,8 +18,11 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.fragment.app.Fragment;
+import me.dioxo.aecol86.Authentication.Authentication;
+import me.dioxo.aecol86.Constantes;
 import me.dioxo.aecol86.ListerEstudiantes.ListerEstudiantes;
 import me.dioxo.aecol86.R;
+import me.dioxo.aecol86.libs.ApplicationContextProvider;
 
 import android.view.Menu;
 import android.view.MenuItem;
@@ -77,12 +82,25 @@ public class NavigationDrawer extends AppCompatActivity
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.menu_logout) {
+            cerrarSesion();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
     }
+
+
+    private void cerrarSesion() {
+        SharedPreferences settings = ApplicationContextProvider.getContext().getSharedPreferences(Constantes.ID_USER, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(Constantes.ID_USER, null);
+        // Commit the edits!
+        editor.apply();
+
+        startActivity(new Intent(this, Authentication.class));
+    }
+
 
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
