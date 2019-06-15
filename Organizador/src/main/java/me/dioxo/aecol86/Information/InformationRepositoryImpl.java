@@ -1,5 +1,7 @@
 package me.dioxo.aecol86.Information;
 
+import android.util.Log;
+
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
@@ -88,11 +90,14 @@ class InformationRepositoryImpl implements InformationRepository {
 
     @Override
     public void insererPersona(Estudiante estudiante) {
+        Log.i("Information", estudiante.toString());
+
 
         Response.Listener<String> success = response -> {
             try {
                 JSONObject jsonObject = new JSONObject(response);
 
+                Log.i("Information INSERER", response);
 
 
                 if(jsonObject.getBoolean("result")){

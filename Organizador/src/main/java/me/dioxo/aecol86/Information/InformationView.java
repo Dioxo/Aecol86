@@ -12,6 +12,7 @@ public interface InformationView {
     void insererPersona();
 
     void afficherMessage(String message);
+    void changerMenu();
 
     void afficherOrganizadores(ArrayList<String> organizadores);
 }

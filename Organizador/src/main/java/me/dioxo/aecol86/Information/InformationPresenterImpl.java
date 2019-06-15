@@ -46,6 +46,7 @@ class InformationPresenterImpl implements InformationPresenter {
 
             case InformationEvent.INSERT_SUCCESS:
                 afficherMessage(event.getMessage());
+                changerMenu();
                 break;
 
             case InformationEvent.INSERT_ERROR:
@@ -67,6 +68,12 @@ class InformationPresenterImpl implements InformationPresenter {
             case InformationEvent.CHERCHER_ERROR:
                 afficherMessage(event.getMessage());
                 break;
+        }
+    }
+
+    private void changerMenu() {
+        if(view != null){
+            view.changerMenu();
         }
     }
 
