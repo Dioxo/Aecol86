@@ -1,9 +1,155 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Information.InformationActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+
+            <EditText
+                android:id="@+id/edtNombre"
+                android:layout_width="328dp"
+                android:paddingStart="60dp"
+                android:hint="@string/Ac_information_txt_nombre_estudiante"
+                android:layout_height="45dp"
+                android:background="@drawable/edit_nom_user"/>
+
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="328dp"
+                android:paddingStart="60dp"
+                android:hint="@string/Ac_login_txt_email"
+                android:background="@drawable/edit_email"
+                android:layout_height="45dp" />
+
+            <EditText
+                android:id="@+id/edtTelefono"
+                android:layout_width="328dp"
+                android:paddingStart="60dp"
+                android:hint="@string/Ac_login_txt_telefono"
+                android:background="@drawable/edit_telef"
+                android:layout_height="45dp" />
+
+
+            <EditText
+                android:id="@+id/edtTelefono_Emergencia"
+                android:layout_width="328dp"
+                android:paddingStart="60dp"
+                android:hint="@string/Ac_information_txt_telefono_emergencia"
+                android:background="@drawable/edit_telef"
+                android:layout_height="45dp" />
+
+
+
+            <EditText
+                android:id="@+id/edtResidencia"
+                android:layout_width="328dp"
+                android:layout_height="45dp"
+                android:hint="@string/Ac_information_txt_residencia"
+                android:background="@drawable/edit_residencia"
+                android:paddingStart="60dp"/>
+
+            <EditText
+                android:id="@+id/edtCarrera"
+                android:layout_width="328dp"
+                android:layout_height="45dp"
+                android:hint="@string/Ac_information_txt_carrera"
+                android:background="@drawable/edit_carrera"
+                android:paddingStart="60dp"/>
+
+            <EditText
+                android:id="@+id/edtTransporte"
+                android:layout_width="328dp"
+                android:hint="@string/Ac_information_txt_transporte"
+                android:background="@drawable/edit_transporte"
+                android:paddingStart="60dp"
+                android:layout_height="45dp" />
+
+            <EditText
+                android:id="@+id/edtFecha"
+                android:layout_width="328dp"
+                android:paddingStart="60dp"
+                android:hint="@string/Ac_information_txt_fecha"
+                android:background="@drawable/edit_fecha"
+                android:layout_height="45dp"/>
+
+            <TextView
+                android:layout_marginTop="15dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/Ac_information_txt_encargado"/>
+
+            <Spinner
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/spinnerOrganizador"
+                android:spinnerMode="dropdown" />
+
+
+            <View
+                android:layout_marginBottom="20dp"
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:text="@string/Ac_information_txt_opcionales"
+                android:layout_marginBottom="20dp"
+                />
+
+            <EditText
+                android:id="@+id/edtHotel"
+                android:layout_width="328dp"
+                android:paddingStart="60dp"
+                android:hint="@string/Ac_information_txt_hotel"
+                android:background="@drawable/edit_hotel"
+                android:layout_height="45dp"/>
+
+
+            <EditText
+                android:id="@+id/edtInfo_Adicional"
+                android:layout_width="328dp"
+                android:paddingStart="60dp"
+                android:hint="@string/Ac_information_txt_info"
+                android:background="@drawable/edit_info_adicional"
+                android:layout_height="45dp"/>
+            
+        </LinearLayout>
+
+
+    </ScrollView>
+
+</LinearLayout>

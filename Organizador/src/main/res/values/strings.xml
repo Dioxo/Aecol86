@@ -19,4 +19,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_cerrar_sesion">Cerrar sesión</string>
+    <string name="Ac_information_txt_nombre_estudiante">Nombre del estudiante</string>
+    <string name="Ac_information_txt_telefono_emergencia">Telefono de emergencia</string>
+    <string name="Ac_information_txt_residencia">Residencia</string>
+    <string name="Ac_information_txt_carrera">Carrera</string>
+    <string name="Ac_information_txt_transporte">Transporte</string>
+    <string name="Ac_information_txt_fecha">Fecha de llegada</string>
+    <string name="Ac_information_txt_encargado">Encargado:</string>
+    <string name="Ac_information_txt_opcionales">Opcionales</string>
+    <string name="Ac_information_txt_hotel">Hotel Temporal</string>
+    <string name="Ac_information_txt_info">Información Adicional</string>
 </resources>
