@@ -1,15 +1,29 @@
 package me.dioxo.aecol86.ListerEstudiantes;
 
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
+import android.widget.TextView;
+import android.widget.Toast;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.util.ArrayList;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import me.dioxo.aecol86.Estudiante;
 import me.dioxo.aecol86.R;
 
 /**
@@ -20,7 +34,7 @@ import me.dioxo.aecol86.R;
  * Use the {@link ListerEstudiantes#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class ListerEstudiantes extends Fragment {
+public class ListerEstudiantes extends Fragment implements ListerView {
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
@@ -29,6 +43,13 @@ public class ListerEstudiantes extends Fragment {
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
+
+    @BindView(R.id.list_item)
+    ListView listItem;
+
+    ArrayAdapter<Estudiante> mLeadsAdapter;
+    private ListerPresenter listerPresenter;
 
     private OnFragmentInteractionListener mListener;
 
@@ -67,7 +88,39 @@ public class ListerEstudiantes extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_lister_estudiantes, container, false);
+        View view = inflater.inflate(R.layout.fragment_lister_estudiantes, container, false);
+
+        //Importante agregarla en Fragments
+        /*
+        * ButterKnife debe saber a cual view está relacionado los diferentes elementos visuales
+        * Mirar la documentación de ButterKnife, parte de "Non Activity Binding"
+        *
+        * https://jakewharton.github.io/butterknife/
+        *
+        *
+        * */
+        ButterKnife.bind(this,view);
+
+
+
+        listerPresenter = new ListerPresenterImpl(this);
+        listerPresenter.onCreate();
+
+
+        return view;
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        listerPresenter.onDestroy();
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        chercherPersonas();
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -92,6 +145,58 @@ public class ListerEstudiantes extends Fragment {
     public void onDetach() {
         super.onDetach();
         mListener = null;
+    }
+
+    @Override
+    public void chercherPersonas() {
+        listerPresenter.chercherPersonas();
+    }
+
+    @Override
+    public void afficherPersonas(ArrayList<Estudiante> estudiantes) {
+        Log.i("Fragment", estudiantes.toString());
+
+
+        mLeadsAdapter = new ArrayAdapter(getContext(), android.R.layout.simple_list_item_2, android.R.id.text1, estudiantes) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView text1 = (TextView) view.findViewById(android.R.id.text1);
+                TextView text2 = (TextView) view.findViewById(android.R.id.text2);
+
+                text1.setText(estudiantes.get(position).getNombre_estudiante());
+                text2.setText("Encargado de Buscar: " + estudiantes.get(position).getNombre_organizador());
+                return view;
+            }
+        };
+
+        listItem.setAdapter(mLeadsAdapter);
+
+        listItem.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                listerInformation((Estudiante) parent.getItemAtPosition(position));
+            }
+        });
+
+    }
+
+    @Override
+    public void agregarPersona() {
+        //Intent intent = new Intent(this, InformationActivity.class);
+        //startActivity(intent);
+    }
+
+    @Override
+    public void listerInformation(Estudiante estudiante) {
+        /*Intent intent = new Intent(this, InformationActivity.class);
+        intent.putExtra("Estudiante", estudiante);
+        startActivity(intent);*/
+    }
+
+    @Override
+    public void afficherError(String message) {
+        Toast.makeText(getContext(), message , Toast.LENGTH_SHORT).show();
     }
 
     /**
