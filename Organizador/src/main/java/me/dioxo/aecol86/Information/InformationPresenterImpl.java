@@ -55,6 +55,7 @@ class InformationPresenterImpl implements InformationPresenter {
 
             case InformationEvent.DELETE_SUCCESS:
                 afficherMessage(event.getMessage());
+                cerrarActivity();
                 break;
 
             case InformationEvent.DELETE_ERROR:
@@ -68,6 +69,12 @@ class InformationPresenterImpl implements InformationPresenter {
             case InformationEvent.CHERCHER_ERROR:
                 afficherMessage(event.getMessage());
                 break;
+        }
+    }
+
+    private void cerrarActivity() {
+        if(view != null){
+            view.cerrarActivity();
         }
     }
 

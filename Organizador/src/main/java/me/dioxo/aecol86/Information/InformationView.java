@@ -15,4 +15,7 @@ public interface InformationView {
     void changerMenu();
 
     void afficherOrganizadores(ArrayList<String> organizadores);
+
+    void cerrarActivity();
+
 }

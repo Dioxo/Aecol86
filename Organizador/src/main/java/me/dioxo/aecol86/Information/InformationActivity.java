@@ -156,6 +156,11 @@ public class InformationActivity extends AppCompatActivity implements Informatio
 
     }
 
+    @Override
+    public void cerrarActivity() {
+        finish();
+    }
+
 
     @Override
     protected void onDestroy() {
@@ -220,7 +225,7 @@ public class InformationActivity extends AppCompatActivity implements Informatio
             if(rempli){
                 presenter.insererPersona(estudiante);
             }
-            
+
 
         }
     }
