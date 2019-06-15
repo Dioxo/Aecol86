@@ -4,8 +4,11 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
@@ -33,6 +36,7 @@ public class NavigationDrawer extends AppCompatActivity
     @BindView(R.id.fab)
     FloatingActionButton fab;
 
+    TextView email;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,6 +54,15 @@ public class NavigationDrawer extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
+        email = (TextView) headerView.findViewById(R.id.txtEmailUser);
+        Intent intent = getIntent();
+
+
+        String emailOrganizador = intent.getStringExtra("email");
+        email.setText(emailOrganizador);
+
     }
 
     @Override

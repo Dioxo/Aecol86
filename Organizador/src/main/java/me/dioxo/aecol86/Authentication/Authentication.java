@@ -10,6 +10,7 @@ import me.dioxo.aecol86.Register.RegisterActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -62,6 +63,9 @@ public class Authentication extends AppCompatActivity implements  Authentication
     public void goToNextPage() {
         Intent intent = new Intent(this, NavigationDrawer.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        Log.i("Extras",edTxtUser.getText().toString());
+        intent.putExtra("email", edTxtUser.getText().toString());
         startActivity(intent);
     }
 
@@ -89,7 +93,7 @@ public class Authentication extends AppCompatActivity implements  Authentication
     @OnClick(R.id.btnLogin)
     public void onBtnLoginClicked() {
         presenter.confirmerMDP(edTxtUser.getText().toString(), edTxtPassword.getText().toString());
-        effacerText();
+        //effacerText();
     }
 
     @OnClick(R.id.register)
