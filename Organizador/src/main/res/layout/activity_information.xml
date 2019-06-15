@@ -146,7 +146,7 @@
                 android:hint="@string/Ac_information_txt_info"
                 android:background="@drawable/edit_info_adicional"
                 android:layout_height="45dp"/>
-            
+
         </LinearLayout>
 
 

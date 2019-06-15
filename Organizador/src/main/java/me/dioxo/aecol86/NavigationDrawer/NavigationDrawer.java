@@ -4,48 +4,43 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
-
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
 import me.dioxo.aecol86.Authentication.Authentication;
 import me.dioxo.aecol86.Constantes;
+import me.dioxo.aecol86.Information.InformationActivity;
 import me.dioxo.aecol86.ListerEstudiantes.ListerEstudiantes;
 import me.dioxo.aecol86.R;
 import me.dioxo.aecol86.libs.ApplicationContextProvider;
-
-import android.view.Menu;
-import android.view.MenuItem;
 
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         ListerEstudiantes.OnFragmentInteractionListener {
 
+    @BindView(R.id.fab)
+    FloatingActionButton fab;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_navigation_drawer);
+        ButterKnife.bind(this);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                //Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                //.setAction("Action", null).show();
-            }
-        });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -127,7 +122,7 @@ public class NavigationDrawer extends AppCompatActivity
 
         }*/
 
-        if(transition){
+        if (transition) {
 
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.screen_area, fragment)
@@ -146,5 +141,10 @@ public class NavigationDrawer extends AppCompatActivity
     @Override
     public void onFragmentInteraction(Uri uri) {
 
+    }
+
+    @OnClick(R.id.fab)
+    public void onViewClicked() {
+        startActivity(new Intent(this, InformationActivity.class));
     }
 }
