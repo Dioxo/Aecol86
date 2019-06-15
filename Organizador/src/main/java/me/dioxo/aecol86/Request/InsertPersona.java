@@ -19,7 +19,6 @@ public class InsertPersona extends StringRequest {
         super(Method.POST,route,listener,null);
 
         parametres = new HashMap<>();
-        parametres.put("idEstudiante", estudiante.getIdEstudiante());
         parametres.put("nombre_estudiante", estudiante.getNombre_estudiante());
         parametres.put("email_estudiante", estudiante.getEmail_estudiante());
         parametres.put("telefono_estudiante", estudiante.getTelefono_estudiante());
@@ -32,29 +31,6 @@ public class InsertPersona extends StringRequest {
         parametres.put("info_estudiante", estudiante.getInfo_estudiante());
         parametres.put("nombre_organizador", estudiante.getNombre_organizador());
 
-
-        /*
-        *
-          update estudiante set
-
-          idOrganizador = (SELECT idOrganizador from organizador where nombre_organizador = 'Dioxo'),
-          nombre_estudiante = '',
-          email_estudiante = '',
-          telefono_estudiante = '',
-          telefono_emergencia = '',
-          residencia_estudiante = '',
-          carrera_estudiante = '',
-          fecha_estudiante = '',
-          transporte_estudiante = ''
-
-          where idEstudiante = -1
-
-          update estudiante_hotel set hotel_estudiante = 'test' where idEstudiante = -1;
-
-          update estudiante_info set info_estudiante = 'test' where idEstudiante = -1;
-
-
-         * */
     }
 
     @Override
