@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.dioxo.aecol86.Estudiante;
+import me.dioxo.aecol86.Information.InformationActivity;
 import me.dioxo.aecol86.R;
 
 /**
@@ -183,15 +184,15 @@ public class ListerEstudiantes extends Fragment implements ListerView {
 
     @Override
     public void agregarPersona() {
-        //Intent intent = new Intent(this, InformationActivity.class);
-        //startActivity(intent);
+        Intent intent = new Intent(getContext(), InformationActivity.class);
+        startActivity(intent);
     }
 
     @Override
     public void listerInformation(Estudiante estudiante) {
-        /*Intent intent = new Intent(this, InformationActivity.class);
+        Intent intent = new Intent(getContext(), InformationActivity.class);
         intent.putExtra("Estudiante", estudiante);
-        startActivity(intent);*/
+        startActivity(intent);
     }
 
     @Override
