@@ -63,7 +63,9 @@ public class NavigationDrawer extends AppCompatActivity
         String emailOrganizador = intent.getStringExtra("email");
         email.setText(emailOrganizador);
 
+        cargarFragmentPorDefecto();
     }
+
 
     @Override
     public void onBackPressed() {
@@ -106,7 +108,9 @@ public class NavigationDrawer extends AppCompatActivity
         // Commit the edits!
         editor.apply();
 
-        startActivity(new Intent(this, Authentication.class));
+        Intent intent = new Intent(this, Authentication.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
 
@@ -149,6 +153,18 @@ public class NavigationDrawer extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    private void cargarFragmentPorDefecto() {
+
+        Fragment fragment = new ListerEstudiantes();
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.screen_area, fragment)
+                .commit();
+
+        getSupportActionBar().setTitle("Nuevos Estudiantes");
     }
 
     @Override
