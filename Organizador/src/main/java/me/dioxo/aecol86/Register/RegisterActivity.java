@@ -55,6 +55,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
     @Override
     public void enableInputs() {
         edtEmail.setEnabled(true);
+        edtTelefono.setEnabled(true);
         edTxtPassword.setEnabled(true);
         edTxtUser.setEnabled(true);
     }
@@ -62,6 +63,7 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView 
     @Override
     public void disableInputs() {
         edtEmail.setEnabled(false);
+        edtTelefono.setEnabled(false);
         edTxtPassword.setEnabled(false);
         edTxtUser.setEnabled(false);
     }
