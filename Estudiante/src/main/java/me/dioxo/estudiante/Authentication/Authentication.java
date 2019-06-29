@@ -1,8 +1,10 @@
-package me.dioxo.estudiante;
+package me.dioxo.estudiante.Authentication;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import me.dioxo.estudiante.R;
 
 public class Authentication extends AppCompatActivity {
 
