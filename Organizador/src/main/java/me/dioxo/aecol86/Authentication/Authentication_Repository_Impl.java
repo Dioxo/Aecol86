@@ -12,11 +12,16 @@ import com.android.volley.toolbox.Volley;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
 import me.dioxo.aecol86.Constantes;
 import me.dioxo.aecol86.Request.LoginRequest;
 import me.dioxo.aecol86.libs.ApplicationContextProvider;
 import me.dioxo.aecol86.libs.EventBus;
 import me.dioxo.aecol86.libs.GreenRobotEventBus;
+import me.dioxo.aecol86.libs.Seguridad.Encriptar;
+import me.dioxo.aecol86.libs.Seguridad.Encriptar_Interface;
 
 
 public class Authentication_Repository_Impl implements Authentication_Repository {
@@ -36,7 +41,10 @@ public class Authentication_Repository_Impl implements Authentication_Repository
 
                 JSONObject jsonObject = new JSONObject(response);
                 String password = jsonObject.getString("password_organizador");
-                if(password.equals(mdp)){
+
+                Encriptar_Interface encriptar = new Encriptar();
+
+                if(encriptar.validatePassword(mdp , password)){
                     storeUser_id(jsonObject.getString("idOrganizador"));
                     event = new Authentication_Event(Authentication_Event.AUTHENTICATION_OKAY);
                 }else{
@@ -46,6 +54,10 @@ public class Authentication_Repository_Impl implements Authentication_Repository
                 eventBus.post(event);
 
             } catch (JSONException e) {
+                e.printStackTrace();
+            } catch (NoSuchAlgorithmException e) {
+                e.printStackTrace();
+            } catch (InvalidKeySpecException e) {
                 e.printStackTrace();
             }
         };
