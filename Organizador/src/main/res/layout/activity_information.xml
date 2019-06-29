@@ -56,21 +56,23 @@
             <EditText
                 android:id="@+id/edtTelefono"
                 android:layout_width="328dp"
-                android:paddingStart="60dp"
-                android:hint="@string/Ac_login_txt_telefono"
-                android:paddingRight="10dp"
+                android:layout_height="45dp"
                 android:background="@drawable/edit_telef"
-                android:layout_height="45dp" />
+                android:hint="@string/Ac_login_txt_telefono"
+                android:inputType="phone"
+                android:paddingStart="60dp"
+                android:paddingRight="10dp" />
 
 
             <EditText
                 android:id="@+id/edtTelefono_Emergencia"
                 android:layout_width="328dp"
-                android:paddingStart="60dp"
-                android:hint="@string/Ac_information_txt_telefono_emergencia"
-                android:paddingRight="10dp"
+                android:layout_height="45dp"
                 android:background="@drawable/edit_telef"
-                android:layout_height="45dp" />
+                android:hint="@string/Ac_information_txt_telefono_emergencia"
+                android:inputType="phone"
+                android:paddingStart="60dp"
+                android:paddingRight="10dp" />
 
 
 
