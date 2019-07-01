@@ -30,4 +30,5 @@
     <string name="Ac_information_txt_hotel">Hotel Temporal</string>
     <string name="Ac_information_txt_info">Información Adicional</string>
     <string name="Ac_information_txt_telefono_sin_identificador">Ingrese el numero de telefono sin identificador del pais</string>
+    <string name="Ac_register_error_telefono_incompleto">Error, el número de telefono no es valido</string>
 </resources>
