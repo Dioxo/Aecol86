@@ -88,6 +88,18 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView,
         presenter = new RegisterPresenterImpl(this);
         presenter.onCreate();
 
+        edtNombre.setText("test");
+        edtEmail.setText("test");
+        edTxtPassword.setText("test");
+        edtTelefono.setText("1234567890");
+        edtTelefonoEmergencia.setText("1234567890");
+        edtResidencia.setText("test");
+        edtCarrera.setText("test");
+        edtFecha.setText("test");
+        edtTransporte.setText("test");
+        edtHotel.setText("test");
+        edtInfoAdicional.setText("test");
+
     }
 
     @Override
@@ -148,6 +160,12 @@ public class RegisterActivity extends AppCompatActivity implements RegisterView,
             estudiante.setEmail_estudiante(edtEmail.getText().toString());
         } else {
             edtEmail.setError(getString(R.string.Ac_register_error_campo_vacio));
+        }
+
+        if (!TextUtils.isEmpty(edTxtPassword.getText().toString())) {
+            estudiante.setPassword(edTxtPassword.getText().toString());
+        } else {
+            edTxtPassword.setError(getString(R.string.Ac_register_error_campo_vacio));
         }
 
         if (!TextUtils.isEmpty(edtTelefono.getText().toString())) {

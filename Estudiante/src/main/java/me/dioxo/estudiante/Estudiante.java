@@ -5,6 +5,10 @@ import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 
 import java.io.Serializable;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+
+import me.dioxo.estudiante.libs.Seguridad.Encriptar;
 
 public class Estudiante implements Serializable {
 
@@ -180,7 +184,14 @@ public class Estudiante implements Serializable {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        Encriptar encriptar = new Encriptar();
+        try {
+            this.password = encriptar.generateStorngPasswordHash(password);
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        } catch (InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
