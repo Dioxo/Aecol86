@@ -95,4 +95,4 @@ lint/tmp/
 
 #Clase con conexiones al servidor
 Organizador/src/main/java/me/dioxo/aecol86/Constantes.java
-Estudiante/src/main/java/me/dioxo/aecol86/Constantes.java
+Estudiante/src/main/java/me/dioxo/estudiante/Constantes.java
