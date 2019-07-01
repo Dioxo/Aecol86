@@ -8,6 +8,7 @@
     <string name="Ac_login_txt_nombre">Nombre</string>
     <string name="Ac_login_txt_telefono">Telefono</string>
     <string name="Ac_register_error_campo_vacio">Error, campo vacío</string>
+    <string name="Ac_register_error_telefono_incompleto">Error, el número de telefono no es valido</string>
     <string name="title_activity_navigation_drawer">NavigationDrawer</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -16,7 +17,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="menu_cerrar_sesion">Cerrar sesión</string>
     <string name="Ac_information_txt_nombre_estudiante">Nombre del estudiante</string>
@@ -29,4 +29,5 @@
     <string name="Ac_information_txt_opcionales">Opcionales</string>
     <string name="Ac_information_txt_hotel">Hotel Temporal</string>
     <string name="Ac_information_txt_info">Información Adicional</string>
+    <string name="Ac_information_txt_telefono_sin_identificador">Ingrese el numero de telefono sin identificador del pais</string>
 </resources>
