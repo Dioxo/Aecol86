@@ -2,6 +2,7 @@ package me.dioxo.estudiante.Navigation;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
@@ -23,13 +24,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.dioxo.estudiante.Authentication.Authentication;
 import me.dioxo.estudiante.Constantes;
+import me.dioxo.estudiante.Estudiante;
 import me.dioxo.estudiante.MyInfo.MyInfoFragment;
-import me.dioxo.estudiante.MyInfo.MyInformationFragment;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.libs.ApplicationContextProvider;
 
 public class NavigationDrawer extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener, MyInfoFragment.OnFragmentInteractionListener {
     @BindView(R.id.fab)
     FloatingActionButton fab;
 
@@ -165,5 +166,11 @@ public class NavigationDrawer extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+
+    @Override
+    public void afficherInfo(Estudiante estudiante) {
+
     }
 }

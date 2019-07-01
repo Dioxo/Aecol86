@@ -6,7 +6,7 @@ import me.dioxo.estudiante.Estudiante;
 import me.dioxo.estudiante.libs.EventBus;
 import me.dioxo.estudiante.libs.GreenRobotEventBus;
 
-class RegisterPresenterImpl implements RegisterPresenter {
+public class RegisterPresenterImpl implements RegisterPresenter {
     private RegisterView view;
     private RegisterRepository repository;
     private EventBus eventBus;
