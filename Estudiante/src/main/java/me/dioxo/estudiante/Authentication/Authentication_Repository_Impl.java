@@ -39,12 +39,12 @@ public class Authentication_Repository_Impl implements Authentication_Repository
                 Log.i("Login",response);
 
                 JSONObject jsonObject = new JSONObject(response);
-                String password = jsonObject.getString("password_organizador");
+                String password = jsonObject.getString("password_estudiante");
 
                 Encriptar_Interface encriptar = new Encriptar();
 
                 if(encriptar.validatePassword(mdp , password)){
-                    storeUser_id(jsonObject.getString("idOrganizador"));
+                    storeUser_id(jsonObject.getString("idEstudiante"));
                     event = new Authentication_Event(Authentication_Event.AUTHENTICATION_OKAY);
                 }else{
                     event = new  Authentication_Event(Authentication_Event.AUTHENTICATION_ERROR,
