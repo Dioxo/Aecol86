@@ -13,7 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Register.RegisterActivity"></activity>
+        <activity
+            android:name=".Navigation.NavigationDrawer"
+            android:label="@string/title_activity_navigation_drawer"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Register.RegisterActivity" />
         <activity android:name=".Authentication.Authentication">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
