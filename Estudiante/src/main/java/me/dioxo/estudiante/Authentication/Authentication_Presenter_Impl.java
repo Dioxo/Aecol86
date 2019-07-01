@@ -6,7 +6,7 @@ import android.util.Log;
 
 import org.greenrobot.eventbus.Subscribe;
 
-import me.dioxo.aecol86.Constantes;
+import me.dioxo.estudiante.Constantes;
 import me.dioxo.estudiante.libs.ApplicationContextProvider;
 import me.dioxo.estudiante.libs.EventBus;
 import me.dioxo.estudiante.libs.GreenRobotEventBus;

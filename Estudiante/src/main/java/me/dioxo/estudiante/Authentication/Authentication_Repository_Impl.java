@@ -14,7 +14,7 @@ import org.json.JSONObject;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 
-import me.dioxo.aecol86.Constantes;
+import me.dioxo.estudiante.Constantes;
 import me.dioxo.estudiante.Request.LoginRequest;
 import me.dioxo.estudiante.libs.ApplicationContextProvider;
 import me.dioxo.estudiante.libs.EventBus;

@@ -1,5 +1,6 @@
 package me.dioxo.estudiante.Authentication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +14,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.dioxo.estudiante.R;
+import me.dioxo.estudiante.Register.RegisterActivity;
 
 public class Authentication extends AppCompatActivity implements  Authentication_View {
 
@@ -98,6 +100,6 @@ public class Authentication extends AppCompatActivity implements  Authentication
     @OnClick(R.id.register)
     public void onRegisterClicked()
     {
-        //startActivity(new Intent(this, RegisterActivity.class));
+        startActivity(new Intent(this, RegisterActivity.class));
     }
 }

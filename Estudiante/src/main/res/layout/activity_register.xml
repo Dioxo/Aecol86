@@ -118,17 +118,6 @@
                 android:background="@drawable/edit_fecha"
                 android:layout_height="45dp"/>
 
-            <TextView
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/Ac_information_txt_encargado"/>
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinnerOrganizador"
-                android:spinnerMode="dropdown" />
 
 
             <View
@@ -202,9 +191,34 @@
 
 
             -->
+
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="328dp"
+                android:layout_height="55dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="8dp"
+                android:background="@drawable/btn_connecter"
+                android:text="@string/Ac_login_txt_registrarse"/>
         </LinearLayout>
 
 
+
     </ScrollView>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:layout_gravity="center"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp" />
+
 
 </LinearLayout>
