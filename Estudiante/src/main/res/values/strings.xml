@@ -29,4 +29,5 @@
     <string name="Ac_information_txt_opcionales">Opcionales</string>
     <string name="Ac_information_txt_hotel">Hotel Temporal</string>
     <string name="Ac_information_txt_info">Información Adicional</string>
+    <string name="Ac_information_txt_telefono_sin_identificador">Ingrese el numero de telefono sin identificador del pais</string>
 </resources>

@@ -52,6 +52,12 @@
                 android:paddingRight="10dp"
                 android:background="@drawable/edit_email"
                 android:layout_height="45dp" />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/Ac_information_txt_telefono_sin_identificador"
+                android:textSize="12dp"/>
 
             <EditText
                 android:id="@+id/edtTelefono"
@@ -103,20 +109,17 @@
                 android:paddingStart="60dp"
                 android:layout_height="45dp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Formato AAAA-MM-DD HH:MM:SS"
-                android:layout_marginStart="10dp"/>
 
-            <EditText
+            <Button
                 android:id="@+id/edtFecha"
                 android:layout_width="328dp"
                 android:paddingStart="60dp"
                 android:hint="@string/Ac_information_txt_fecha"
                 android:paddingRight="10dp"
+                android:textAlignment="textStart"
                 android:background="@drawable/edit_fecha"
                 android:layout_height="45dp"/>
+
 
 
 
