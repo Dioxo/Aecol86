@@ -23,6 +23,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.dioxo.estudiante.Authentication.Authentication;
 import me.dioxo.estudiante.Constantes;
+import me.dioxo.estudiante.MyInfo.MyInfoFragment;
 import me.dioxo.estudiante.MyInfo.MyInformationFragment;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.libs.ApplicationContextProvider;
@@ -71,7 +72,7 @@ public class NavigationDrawer extends AppCompatActivity
     }
 
     private void cargarFragmentPorDefecto() {
-        Fragment fragment = new MyInformationFragment();
+        Fragment fragment = new MyInfoFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.screen_area, fragment)
                 .commit();
@@ -137,7 +138,7 @@ public class NavigationDrawer extends AppCompatActivity
         if (id == R.id.myInfo) {
             // Handle the camera action
             transition = true;
-            fragment = new MyInformationFragment();
+            fragment = new MyInfoFragment();
         }/* else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {

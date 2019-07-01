@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Register.RegisterActivity">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="En esta sección nos podras ayudar a tener tu información de contacto para ayudarte de la mejor manera al momento de tu llegada."
+                android:textStyle="bold"
+                android:lines="5"
+                />
+            <EditText
+                android:id="@+id/edtNombre"
+                android:layout_width="328dp"
+                android:paddingStart="60dp"
+                android:hint="@string/Ac_information_txt_nombre_estudiante"
+                android:layout_height="45dp"
+                android:paddingRight="10dp"
+                android:background="@drawable/edit_nom_user"/>
+
+
+            <EditText
+                android:id="@+id/edtEmail"
+                android:layout_width="328dp"
+                android:paddingStart="60dp"
+                android:hint="@string/Ac_login_txt_email"
+                android:paddingRight="10dp"
+                android:background="@drawable/edit_email"
+                android:layout_height="45dp" />
+
+            <EditText
+                android:id="@+id/edTxtPassword"
+                android:layout_width="328dp"
+                android:layout_height="45dp"
+                android:ems="10"
+                android:hint="@string/Ac_login_txt_password"
+                android:inputType="textPassword"
+                android:background="@drawable/edit_password"
+                android:paddingStart="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edTxtUser" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="@string/Ac_information_txt_telefono_sin_identificador"
+                android:textSize="12dp"/>
+
+            <EditText
+                android:id="@+id/edtTelefono"
+                android:layout_width="328dp"
+                android:layout_height="45dp"
+                android:background="@drawable/edit_telef"
+                android:hint="@string/Ac_login_txt_telefono"
+                android:inputType="phone"
+                android:paddingStart="60dp"
+                android:paddingRight="10dp" />
+
+
+            <EditText
+                android:id="@+id/edtTelefono_Emergencia"
+                android:layout_width="328dp"
+                android:layout_height="45dp"
+                android:background="@drawable/edit_telef"
+                android:hint="@string/Ac_information_txt_telefono_emergencia"
+                android:inputType="phone"
+                android:paddingStart="60dp"
+                android:paddingRight="10dp" />
+
+
+
+            <EditText
+                android:id="@+id/edtResidencia"
+                android:layout_width="328dp"
+                android:layout_height="45dp"
+                android:hint="@string/Ac_information_txt_residencia"
+                android:paddingRight="10dp"
+                android:background="@drawable/edit_residencia"
+                android:paddingStart="60dp"/>
+
+            <EditText
+                android:id="@+id/edtCarrera"
+                android:layout_width="328dp"
+                android:layout_height="45dp"
+                android:hint="@string/Ac_information_txt_carrera"
+                android:paddingRight="10dp"
+                android:background="@drawable/edit_carrera"
+                android:paddingStart="60dp"/>
+
+            <EditText
+                android:id="@+id/edtTransporte"
+                android:layout_width="328dp"
+                android:hint="@string/Ac_information_txt_transporte"
+                android:paddingRight="10dp"
+                android:background="@drawable/edit_transporte"
+                android:paddingStart="60dp"
+                android:layout_height="45dp" />
+
+
+            <Button
+                android:id="@+id/edtFecha"
+                android:layout_width="328dp"
+                android:paddingStart="60dp"
+                android:hint="@string/Ac_information_txt_fecha"
+                android:paddingRight="10dp"
+                android:textAlignment="textStart"
+                android:background="@drawable/edit_fecha"
+                android:layout_height="45dp"/>
+
+
+
+
+            <View
+                android:layout_marginBottom="20dp"
+                android:id="@+id/divider"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="?android:attr/listDivider" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="10dp"
+                android:text="@string/Ac_information_txt_opcionales"
+                android:textColor="#000000"
+                android:layout_marginBottom="20dp"
+                />
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Ac_information_txt_hotel">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edtHotel"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/Ac_information_txt_info">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/edtInfo_Adicional"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+
+
+    </ScrollView>
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp" />
+
+
+</RelativeLayout>
