@@ -25,31 +25,13 @@ public class RegisterActivity extends AppCompatActivity implements  MyInfoFragme
         setContentView(R.layout.activity_register);
         ButterKnife.bind(this);
 
-        if (getIntent().getExtras() != null) {
-            estudiante = (Estudiante) getIntent().getExtras().getSerializable("Estudiante");
-        }
-
-        if (estudiante != null) {
-            //afficherInformation(estudiante);
-            existPersona = true;
-        } else {
-            existPersona = false;
-        }
-
 
 
         MyInfoFragment fragment = (MyInfoFragment) getSupportFragmentManager().findFragmentById(R.id.myInfo);
 
         if (fragment != null) {
-
-            if (existPersona) {
-                toolbar.setTitle("Mis datos");
-                fragment.afficherEstudiante(estudiante);
-            } else {
-                toolbar.setTitle("Registro");
-                fragment.afficherRegister();
-            }
-
+            toolbar.setTitle("Registro");
+            fragment.afficherRegister();
         }
 
 
