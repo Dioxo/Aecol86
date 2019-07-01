@@ -2,17 +2,18 @@ package me.dioxo.estudiante.Authentication;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
+import me.dioxo.estudiante.Navigation.NavigationDrawer;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.Register.RegisterActivity;
 
@@ -61,13 +62,12 @@ public class Authentication extends AppCompatActivity implements  Authentication
     }
 
     public void goToNextPage() {
-        Toast.makeText(this, "YES", Toast.LENGTH_LONG).show();
-        /*Intent intent = new Intent(this, NavigationDrawer.class);
+        Intent intent = new Intent(this, NavigationDrawer.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
         Log.i("Extras",edTxtUser.getText().toString());
         intent.putExtra("email", edTxtUser.getText().toString());
-        startActivity(intent);*/
+        startActivity(intent);
     }
 
     @Override
