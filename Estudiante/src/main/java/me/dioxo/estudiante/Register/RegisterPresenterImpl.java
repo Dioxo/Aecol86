@@ -42,6 +42,14 @@ public class RegisterPresenterImpl implements RegisterPresenter {
                     view.hideProgressBar();
                     view.registerError(registerEvent.getMessage());
                     break;
+
+                case RegisterEvent.CHERCHER_ERROR:
+                    view.afficherMessage(registerEvent.getMessage());
+                    break;
+
+                case RegisterEvent.CHERCHER_SUCCESS:
+                    view.afficherInformation(registerEvent.getEstudiante());
+                    break;
             }
         }
     }
@@ -53,5 +61,10 @@ public class RegisterPresenterImpl implements RegisterPresenter {
             view.disableInputs();
         }
         repository.registerUser(estudiante);
+    }
+
+    @Override
+    public void chercherInformationEstudiante() {
+        repository.chercherInformationEstudiante();
     }
 }

@@ -37,8 +37,9 @@ public class RegisterActivity extends AppCompatActivity implements  MyInfoFragme
 
     }
 
+
     @Override
-    public void afficherInfo(Estudiante estudiante) {
+    public void onFragmentInteractionListener(String email) {
 
     }
 }

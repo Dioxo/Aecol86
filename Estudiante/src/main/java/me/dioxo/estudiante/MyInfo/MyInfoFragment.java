@@ -87,13 +87,12 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
     private Calendar calendar;
     private int dayFinal, monthFinal, yearFinal, hourFinal, minuteFinal;
 
-
     private OnFragmentInteractionListener mListener;
 
     public MyInfoFragment() {
         // Required empty public constructor
     }
-
+    public boolean isRegister = true;
 
     public void setFragmentListener(OnFragmentInteractionListener mListener) {
         this.mListener = mListener;
@@ -132,11 +131,18 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_my_info, container, false);
         ButterKnife.bind(this, view);
+
         presenter = new RegisterPresenterImpl(this);
         presenter.onCreate();
-
+        if(isRegister){
+            afficherRegister();
+        }else{
+            afficherEstudiante();
+        }
         return view;
     }
+
+
 
     @Override
     public void onDestroy() {
@@ -157,6 +163,7 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
         }
     }
 
+
     @Override
     public void onDetach() {
         super.onDetach();
@@ -167,9 +174,10 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
         organizadorEncargado.setVisibility(View.GONE);
     }
 
-    public void afficherEstudiante(Estudiante estudiante) {
-        Toast.makeText(getContext(), "afficherEstudiante", Toast.LENGTH_LONG).show();
-        btnLogin.setVisibility(View.GONE);
+    public void afficherEstudiante() {
+            buscarInformacionEstudiante();
+            btnLogin.setVisibility(View.GONE);
+            edTxtPassword.setVisibility(View.GONE);
     }
 
     @OnClick(R.id.edtFecha)
@@ -370,6 +378,7 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
 
     @Override
     public void afficherInformation(Estudiante estudiante) {
+        mListener.onFragmentInteractionListener(estudiante.getEmail_estudiante());
         edtNombre.setText(estudiante.getNombre_estudiante());
         edtEmail.setText(estudiante.getEmail_estudiante());
         edtTelefono.setText(estudiante.getTelefono_estudiante());
@@ -449,6 +458,9 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
         return fecha;
     }
 
+    public void buscarInformacionEstudiante(){
+        presenter.chercherInformationEstudiante();
+    }
 
     /**
      * This interface must be implemented by activities that contain this
@@ -462,6 +474,6 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
      */
     public interface OnFragmentInteractionListener {
         // TODO: Update argument type and name
-        void afficherInfo(Estudiante estudiante);
+        void onFragmentInteractionListener(String email);
     }
 }

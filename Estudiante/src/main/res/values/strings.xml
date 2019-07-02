@@ -40,6 +40,6 @@
     <string name="menu_send">Send</string>
     <string name="menu_mi_informacion">Mis datos</string>
     <string name="menu_about_us">Sobre nosotros</string>
-    <string name="menu_checklist">Cosas por hacer al momento de mi llegada</string>
+    <string name="menu_checklist">Cosas por hacer</string>
     <string name="menu_contacto">Contactanos</string>
 </resources>

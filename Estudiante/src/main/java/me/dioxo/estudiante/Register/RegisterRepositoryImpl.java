@@ -5,11 +5,17 @@ import android.util.Log;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.reflect.TypeToken;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.lang.reflect.Type;
+
 import me.dioxo.estudiante.Estudiante;
+import me.dioxo.estudiante.Request.ChercherEstudiante;
 import me.dioxo.estudiante.Request.RegisterEstudiante;
 import me.dioxo.estudiante.libs.ApplicationContextProvider;
 import me.dioxo.estudiante.libs.EventBus;
@@ -53,6 +59,44 @@ class RegisterRepositoryImpl implements RegisterRepository {
         RegisterEstudiante registerEstudiante = new RegisterEstudiante(success, estudiante);
         RequestQueue request = Volley.newRequestQueue(ApplicationContextProvider.getContext());
         request.add(registerEstudiante);
+
+    }
+
+    @Override
+    public void chercherInformationEstudiante() {
+        Response.Listener<String> success = response -> {
+
+            RegisterEvent event;
+
+            // si l'actualisation est effectuée
+
+            GsonBuilder gsonBuilder = new GsonBuilder();
+
+            Gson gson = gsonBuilder.create();
+
+            Log.i("Response", response);
+            Type type = new TypeToken<Estudiante>(){}.getType();
+
+            Estudiante estudiante = gson.fromJson(response, type);
+
+            if(estudiante != null){
+                event = new RegisterEvent(RegisterEvent.CHERCHER_SUCCESS, estudiante);
+            }else{
+                event = new RegisterEvent(RegisterEvent.CHERCHER_ERROR, "Error al cargar su información");
+            }
+
+
+            eventBus.post(event);
+
+        };
+
+        Response.ErrorListener error = errorResponse -> {
+            RegisterEvent event = new RegisterEvent(RegisterEvent.REGISTER_ERROR, errorResponse.toString());
+            eventBus.post(event);
+        };
+        ChercherEstudiante chercherEstudiante = new ChercherEstudiante(success, error);
+        RequestQueue request = Volley.newRequestQueue(ApplicationContextProvider.getContext());
+        request.add(chercherEstudiante);
 
     }
 }

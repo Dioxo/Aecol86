@@ -2,13 +2,14 @@ package me.dioxo.estudiante.Navigation;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -79,6 +80,8 @@ public class NavigationDrawer extends AppCompatActivity
                 .commit();
 
         getSupportActionBar().setTitle("Mis datos");
+        ((MyInfoFragment) fragment).isRegister = false;
+
     }
 
     @Override
@@ -133,13 +136,15 @@ public class NavigationDrawer extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        boolean transition = false;
-        Fragment fragment = null;
+        Fragment fragment = new MyInfoFragment();
 
         if (id == R.id.myInfo) {
             // Handle the camera action
-            transition = true;
             fragment = new MyInfoFragment();
+            ((MyInfoFragment) fragment).isRegister = false;
+
+
+
         }/* else if (id == R.id.nav_gallery) {
 
         } else if (id == R.id.nav_slideshow) {
@@ -152,25 +157,34 @@ public class NavigationDrawer extends AppCompatActivity
 
         }*/
 
-        if (transition) {
 
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.screen_area, fragment)
-                    .commit();
 
-            item.setChecked(true);
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.screen_area, fragment)
+                .commit();
 
-            getSupportActionBar().setTitle(item.getTitle());
-        }
+        item.setChecked(true);
+
+        getSupportActionBar().setTitle(item.getTitle());
+
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
         return true;
     }
 
+    @Override
+    public void onAttachFragment(@NonNull Fragment fragment) {
+        Log.i("MyInfo", "FragmentAttached");
+        if (fragment instanceof MyInfoFragment) {
+            MyInfoFragment headlinesFragment = (MyInfoFragment) fragment;
+            headlinesFragment.setFragmentListener(this);
+        }
+    }
 
     @Override
-    public void afficherInfo(Estudiante estudiante) {
-
+    public void onFragmentInteractionListener(String email){
+        this.email.setText(email);
     }
 }
