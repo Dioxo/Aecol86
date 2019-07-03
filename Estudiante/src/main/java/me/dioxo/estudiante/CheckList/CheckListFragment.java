@@ -56,6 +56,8 @@ public class CheckListFragment extends Fragment {
     CheckBox checkbox11;
     @BindView(R.id.checkbox12)
     CheckBox checkbox12;
+    @BindView(R.id.checkbox13)
+    CheckBox checkbox13;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -111,9 +113,9 @@ public class CheckListFragment extends Fragment {
 
     private void loadPreferences() {
 
-        if(getActivity().getSharedPreferences(Constantes.CHECKLIST, 0) != null){
-             settings= getActivity().getSharedPreferences(Constantes.CHECKLIST, 0);
-              editor = settings.edit();
+        if (getActivity().getSharedPreferences(Constantes.CHECKLIST, 0) != null) {
+            settings = getActivity().getSharedPreferences(Constantes.CHECKLIST, 0);
+            editor = settings.edit();
         }
 
         if (settings != null) {
@@ -129,8 +131,9 @@ public class CheckListFragment extends Fragment {
             checkbox10.setChecked(settings.getBoolean("checkbox10", false));
             checkbox11.setChecked(settings.getBoolean("checkbox11", false));
             checkbox12.setChecked(settings.getBoolean("checkbox12", false));
+            checkbox13.setChecked(settings.getBoolean("checkbox13", false));
 
-        }else{
+        } else {
             Log.i("CheckList", "TODO A FALSO");
             checkbox1.setChecked(false);
             checkbox2.setChecked(false);
@@ -144,8 +147,8 @@ public class CheckListFragment extends Fragment {
             checkbox10.setChecked(false);
             checkbox11.setChecked(false);
             checkbox12.setChecked(false);
+            checkbox13.setChecked(false);
         }
-
 
 
     }
@@ -255,6 +258,13 @@ public class CheckListFragment extends Fragment {
     @OnClick(R.id.checkbox12)
     public void onCheckbox12Clicked() {
         editor.putBoolean("checkbox12", checkbox12.isChecked());
+        // Commit the edits!
+        editor.commit();
+    }
+
+    @OnClick(R.id.checkbox13)
+    public void onViewClicked() {
+        editor.putBoolean("checkbox13", checkbox13.isChecked());
         // Commit the edits!
         editor.commit();
     }
