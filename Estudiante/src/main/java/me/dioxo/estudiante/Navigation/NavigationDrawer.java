@@ -2,6 +2,7 @@ package me.dioxo.estudiante.Navigation;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -26,13 +27,16 @@ import java.util.Arrays;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.dioxo.estudiante.Authentication.Authentication;
+import me.dioxo.estudiante.CheckListFragment;
 import me.dioxo.estudiante.Constantes;
 import me.dioxo.estudiante.MyInfo.MyInfoFragment;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.libs.ApplicationContextProvider;
 
 public class NavigationDrawer extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener, MyInfoFragment.OnFragmentInteractionListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        MyInfoFragment.OnFragmentInteractionListener ,
+        CheckListFragment.OnFragmentInteractionListener{
     @BindView(R.id.fab)
     FloatingActionButton fab;
 
@@ -156,9 +160,10 @@ public class NavigationDrawer extends AppCompatActivity
             item.setChecked(true);
             notShow = true;
 
-        } else if (id == R.id.menu_aboutUs  && !fragmentDisplayed[1]) {
-            mostrarUnFragment(1);
+        } else if (id == R.id.menu_checklist  && !fragmentDisplayed[2]) {
+            mostrarUnFragment(2);
             notShow = true;
+            fragment = new CheckListFragment();
         } /*else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
@@ -211,5 +216,10 @@ public class NavigationDrawer extends AppCompatActivity
     @Override
     public void onFragmentInteractionListener(String email){
         this.email.setText(email);
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
