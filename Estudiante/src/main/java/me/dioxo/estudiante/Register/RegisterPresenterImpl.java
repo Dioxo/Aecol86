@@ -6,7 +6,7 @@ import me.dioxo.estudiante.Estudiante;
 import me.dioxo.estudiante.libs.EventBus;
 import me.dioxo.estudiante.libs.GreenRobotEventBus;
 
-class RegisterPresenterImpl implements RegisterPresenter {
+public class RegisterPresenterImpl implements RegisterPresenter {
     private RegisterView view;
     private RegisterRepository repository;
     private EventBus eventBus;
@@ -42,6 +42,14 @@ class RegisterPresenterImpl implements RegisterPresenter {
                     view.hideProgressBar();
                     view.registerError(registerEvent.getMessage());
                     break;
+
+                case RegisterEvent.CHERCHER_ERROR:
+                    view.afficherMessage(registerEvent.getMessage());
+                    break;
+
+                case RegisterEvent.CHERCHER_SUCCESS:
+                    view.afficherInformation(registerEvent.getEstudiante());
+                    break;
             }
         }
     }
@@ -53,5 +61,10 @@ class RegisterPresenterImpl implements RegisterPresenter {
             view.disableInputs();
         }
         repository.registerUser(estudiante);
+    }
+
+    @Override
+    public void chercherInformationEstudiante() {
+        repository.chercherInformationEstudiante();
     }
 }
