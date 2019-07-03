@@ -9,29 +9,38 @@
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="20dp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="20dp">
+            >
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="En esta sección nos podras ayudar a tener tu información de contacto para ayudarte de la mejor manera al momento de tu llegada."
                 android:textStyle="bold"
-                android:lines="5"
+                android:lines="4"
                 />
 
+            <Button
+                android:id="@+id/btnActualizar"
+                android:layout_width="315dp"
+                android:layout_height="55dp"
+                android:background="@drawable/btn_connecter"
+                android:text="Actualizar mis datos?"/>
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/organizadorEncargado"
+                android:layout_marginTop="15dp"
                 android:text="La persona que te irá a buscar el día de tu llegada es : "
+                android:layout_marginBottom="8dp"
                 android:textStyle="italic"/>
             <EditText
                 android:id="@+id/edtNombre"
