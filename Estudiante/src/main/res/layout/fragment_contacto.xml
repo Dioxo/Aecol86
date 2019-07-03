@@ -1,14 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".Contacto.ContactoFragment">
 
-    <!-- TODO: Update blank fragment layout -->
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="Contáctenos"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold" />
 
-</FrameLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Presidencia: Alvaro Molinares \nNumero: +33783828653"
+        android:layout_margin="10dp"
+        android:textAlignment="textStart"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Tesorería: Leonardo Bonilla \nNumero: +33630390792"
+        android:layout_margin="10dp"
+        android:textAlignment="textStart"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="WhatsApp de la Asociación: +33699951782 \nEmail: asociacioncolombianospoitiers@gmail.com \nFacebook: AECOL86"
+        android:textAlignment="textStart"
+        android:textSize="15dp" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contacto en Colombia: Hugo Guevara \nNumero: 3143268365"
+        android:layout_margin="10dp"
+        android:textAlignment="textStart"
+        android:textSize="15dp"/>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Con en apoyo de Universidad Libre Colombia"
+        android:textStyle="bold"
+        android:layout_margin="10dp"
+        android:textAlignment="textStart"
+        android:textSize="15dp"/>
+</LinearLayout>
