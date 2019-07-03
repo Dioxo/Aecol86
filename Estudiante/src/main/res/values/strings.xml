@@ -1,0 +1,66 @@
+<resources>
+    <string name="app_name">AECOL86</string>
+    <string name="Ac_login_txt_email">Email</string>
+    <string name="Ac_login_txt_password">Contraseña</string>
+    <string name="Ac_login_txt_conectarse">Conectarse</string>
+    <string name="Ac_login_txt_registrarse">Registrarse</string>
+    <string name="activity_login_error_message">Error al iniciar sesión</string>
+    <string name="Ac_login_txt_nombre">Nombre</string>
+    <string name="Ac_login_txt_telefono">Telefono</string>
+    <string name="Ac_register_error_campo_vacio">Error, campo vacío</string>
+    <string name="title_activity_navigation_drawer">NavigationDrawer</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="log_out">Cerrar Sesión</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="menu_cerrar_sesion">Cerrar sesión</string>
+    <string name="Ac_information_txt_nombre_estudiante">Nombre del estudiante</string>
+    <string name="Ac_information_txt_telefono_emergencia">Telefono de emergencia</string>
+    <string name="Ac_information_txt_residencia">Residencia</string>
+    <string name="Ac_information_txt_carrera">Carrera</string>
+    <string name="Ac_information_txt_transporte">Transporte</string>
+    <string name="Ac_information_txt_fecha">Fecha de llegada</string>
+    <string name="Ac_information_txt_encargado">Encargado:</string>
+    <string name="Ac_information_txt_opcionales">Opcionales</string>
+    <string name="Ac_information_txt_hotel">Hotel Temporal</string>
+    <string name="Ac_information_txt_info">Información Adicional</string>
+    <string name="Ac_information_txt_telefono_sin_identificador">Ingrese el numero de telefono sin identificador del pais</string>
+    <string name="Ac_register_error_telefono_incompleto">Error, el número de telefono no es valido</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+    <string name="menu_tools">Tools</string>
+    <string name="menu_share">Share</string>
+    <string name="menu_send">Send</string>
+    <string name="menu_mi_informacion">Mis datos</string>
+    <string name="menu_about_us">Sobre nosotros</string>
+    <string name="menu_checklist">Al momento de mi llegada</string>
+    <string name="menu_contacto">Contactanos</string>
+    <string name="CheckList_1">Solicito las llaves de mi residencia CROUS y una ​ attestation d\'hébergement CAF </string>
+    <string name="CheckList_2">Me presento a la oficina de relaciones internacionales de mi Universidad con el pasaporte​ y la ​ Demande d’Attestation ​ OFII​ para validar mi estadía.</string>
+    <string name="CheckList_3">Me inscribo a mi master en el ​ Service de Scolarité d ​ e mi facultad. Para ello anexo el certificado de la CVEC que debo haber pagado con anticipación.</string>
+    <string name="CheckList_4">Activo mi Carte IZLY.</string>
+    <string name="CheckList_5">Compro una tarjeta SIM y adquiero un plan de telefonía móvil.</string>
+    <string name="CheckList_6">Abro mi cuenta bancaria francesa.</string>
+    <string name="CheckList_7">Adquiero un seguro de habitaci​ón.</string>
+    <string name="CheckList_8">Me registro al sistema de seguridad social francés y solicito mi ​ Carte Vitale</string>
+    <string name="CheckList_9">Solicito la ayuda del gobierno francés para el pago de mi habitación ante la CAF.</string>
+    <string name="CheckList_10">Adquiero la ​ Carte Culture ​ para los eventos culturales en la ciudad de Poitiers en la Maison des étudiants ​</string>
+    <string name="CheckList_11">Adquiero mi pase de bus en la red de Vitalis.</string>
+    <string name="CheckList_12">Me inscribo al Consulado de Colombia en París en el siguiente link:
+https://www.cancilleria.gov.co/registro-consular</string>
+    <string name="about_us">Somos una asociación constituida principalmente por estudiantes que queremos compartir las experiencias adquiridas durante nuestra estadía en Francia .
+
+        \n\nTenemos por objeto la promoción y la integración de la cultura colombiana en Poitiers, así como ser un centro de ayuda y apoyo a los estudiantes de nacionalidad colombiana que realicen intercambio en Poitiers .
+
+        \n\nEl interés principal de la asociación es facilitar el inicio de la vida cotidiana poitevina y académica francesa.</string>
+    <string name="mensaje_ofii">Doy certeza que traigo conmigo el documento de la OFII (Demande d\'Attestation OFII)</string>
+    <string name="CheckList_13">Me suscribo a la asociación (10 euros)</string>
+
+</resources>

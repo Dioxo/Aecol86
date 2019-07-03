@@ -1,39 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".Information.InformationActivity">
-
-
-
-    <com.google.android.material.appbar.AppBarLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
-
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
-
-    </com.google.android.material.appbar.AppBarLayout>
+    tools:context=".Register.RegisterActivity">
 
     <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_margin="20dp">
 
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
-            android:layout_margin="20dp">
+            >
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="En esta sección nos podras ayudar a tener tu información de contacto para ayudarte de la mejor manera al momento de tu llegada."
+                android:textStyle="bold"
+                android:lines="4"
+                />
+
+            <Button
+                android:id="@+id/btnActualizar"
+                android:layout_width="315dp"
+                android:layout_height="55dp"
+                android:background="@drawable/btn_connecter"
+                android:text="Actualizar mis datos?"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/organizadorEncargado"
+                android:layout_marginTop="15dp"
+                android:text="La persona que te irá a buscar el día de tu llegada es : "
+                android:layout_marginBottom="8dp"
+                android:textStyle="italic"/>
             <EditText
                 android:id="@+id/edtNombre"
                 android:layout_width="328dp"
@@ -52,6 +60,19 @@
                 android:paddingRight="10dp"
                 android:background="@drawable/edit_email"
                 android:layout_height="45dp" />
+
+            <EditText
+                android:id="@+id/edTxtPassword"
+                android:layout_width="328dp"
+                android:layout_height="45dp"
+                android:ems="10"
+                android:hint="@string/Ac_login_txt_password"
+                android:inputType="textPassword"
+                android:background="@drawable/edit_password"
+                android:paddingStart="60dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/edTxtUser" />
 
             <TextView
                 android:layout_width="match_parent"
@@ -110,6 +131,7 @@
                 android:paddingStart="60dp"
                 android:layout_height="45dp" />
 
+
             <Button
                 android:id="@+id/edtFecha"
                 android:layout_width="328dp"
@@ -120,18 +142,13 @@
                 android:background="@drawable/edit_fecha"
                 android:layout_height="45dp"/>
 
-            <TextView
-                android:layout_marginTop="15dp"
+
+            <CheckBox
+                android:id="@+id/ofii"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/Ac_information_txt_encargado"/>
-
-            <Spinner
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:id="@+id/spinnerOrganizador"
-                android:spinnerMode="dropdown" />
-
+                android:layout_margin="10dp"
+                android:text="@string/mensaje_ofii"/>
 
             <View
                 android:layout_marginBottom="20dp"
@@ -175,38 +192,31 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
-            <!--
-
-
-
-
-
-                      <EditText
-    android:id="@+id/edtHotel"
-    android:layout_width="328dp"
-    android:paddingStart="60dp"
-    android:hint="@string/Ac_information_txt_hotel"
-    android:paddingRight="10dp"
-    android:layout_height="wrap_content"/>
-
-
-<EditText
-    android:id="@+id/edtInfo_Adicional"
-    android:layout_width="328dp"
-    android:paddingStart="60dp"
-    android:hint="@string/Ac_information_txt_info"
-    android:paddingRight="10dp"
-    android:layout_height="wrap_content"/>
-
-
-
-
-
-
-            -->
+            <Button
+                android:id="@+id/btnLogin"
+                android:layout_width="315dp"
+                android:layout_height="55dp"
+                android:layout_margin="30dp"
+                android:background="@drawable/btn_connecter"
+                android:text="@string/Ac_login_txt_registrarse"/>
         </LinearLayout>
+
 
 
     </ScrollView>
 
-</LinearLayout>
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp" />
+
+
+</RelativeLayout>
