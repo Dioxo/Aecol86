@@ -50,6 +50,14 @@ public class RegisterPresenterImpl implements RegisterPresenter {
                 case RegisterEvent.CHERCHER_SUCCESS:
                     view.afficherInformation(registerEvent.getEstudiante());
                     break;
+
+                case RegisterEvent.UPDATE_SUCCESS:
+                    view.afficherMessage(registerEvent.getMessage());
+                    break;
+
+                case RegisterEvent.UPDATE_ERROR:
+                    view.afficherMessage(registerEvent.getMessage());
+                    break;
             }
         }
     }
@@ -66,5 +74,10 @@ public class RegisterPresenterImpl implements RegisterPresenter {
     @Override
     public void chercherInformationEstudiante() {
         repository.chercherInformationEstudiante();
+    }
+
+    @Override
+    public void actualizarDatos(Estudiante estudiante) {
+        repository.actualizarDatos(estudiante);
     }
 }

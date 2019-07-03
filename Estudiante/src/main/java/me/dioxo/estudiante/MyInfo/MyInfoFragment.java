@@ -78,6 +78,8 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
     ProgressBar progressBar;
     @BindView(R.id.ofii)
     CheckBox ofii;
+    @BindView(R.id.btnActualizar)
+    Button btnActualizar;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -173,6 +175,7 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
     }
 
     public void afficherRegister() {
+        btnActualizar.setVisibility(View.GONE);
         organizadorEncargado.setVisibility(View.GONE);
     }
 
@@ -212,9 +215,9 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
         //Si los campos obligatorios están llenos
         if (!TextUtils.isEmpty(edtNombre.getText().toString()) &&
                 !TextUtils.isEmpty(edtEmail.getText().toString()) &&
-                !TextUtils.isEmpty(edTxtPassword.getText().toString()) &&
                 !TextUtils.isEmpty(edtTelefono.getText().toString()) &&
                 edtTelefono.getText().toString().length() == 10 &&
+                ((edTxtPassword.getVisibility() == View.VISIBLE && !TextUtils.isEmpty(edTxtPassword.getText().toString())) || edTxtPassword.getVisibility() == View.GONE) &
                 !TextUtils.isEmpty(edtTelefonoEmergencia.getText().toString()) &&
                 edtTelefonoEmergencia.getText().toString().length() == 10 &&
                 !TextUtils.isEmpty(edtResidencia.getText().toString()) &&
@@ -222,10 +225,13 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
                 !TextUtils.isEmpty(edtFecha.getText().toString()) &&
                 !TextUtils.isEmpty(edtTransporte.getText().toString()) &&
                 ofii.isChecked()) {
+
             return true;
+
         } else {
             return false;
         }
+
     }
 
     private void confirmarCamposVacion() {
@@ -325,7 +331,7 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
             estudiante.setInfo_estudiante(edtInfoAdicional.getText().toString());
         }
 
-        if(!ofii.isChecked()){
+        if (!ofii.isChecked()) {
             ofii.setError("Este campo es obligatorio");
         }
 
@@ -384,6 +390,8 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
 
     @Override
     public void afficherInformation(Estudiante estudiante) {
+        this.estudiante = estudiante;
+
         mListener.onFragmentInteractionListener(estudiante.getEmail_estudiante());
 
         StringBuilder stringBuilder = new StringBuilder();
@@ -471,6 +479,18 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
 
     public void buscarInformacionEstudiante() {
         presenter.chercherInformationEstudiante();
+    }
+
+    @OnClick(R.id.btnActualizar)
+    public void onViewClicked() {
+        confirmarCamposVacion();
+        boolean rempli = confirmarCamposObligatorios();
+
+        Log.i("Info", estudiante.toString());
+        Log.i("Info", rempli + "");
+        if (rempli) {
+            presenter.actualizarDatos(estudiante);
+        }
     }
 
     /**
