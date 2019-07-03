@@ -1,4 +1,4 @@
-package me.dioxo.estudiante;
+package me.dioxo.estudiante.CheckList;
 
 import android.content.Context;
 import android.net.Uri;
@@ -8,6 +8,8 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
+
+import me.dioxo.estudiante.R;
 
 
 /**

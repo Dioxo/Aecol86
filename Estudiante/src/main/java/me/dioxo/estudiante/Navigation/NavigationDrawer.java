@@ -27,7 +27,7 @@ import java.util.Arrays;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.dioxo.estudiante.Authentication.Authentication;
-import me.dioxo.estudiante.CheckListFragment;
+import me.dioxo.estudiante.CheckList.CheckListFragment;
 import me.dioxo.estudiante.Constantes;
 import me.dioxo.estudiante.MyInfo.MyInfoFragment;
 import me.dioxo.estudiante.R;
