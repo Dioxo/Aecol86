@@ -27,6 +27,7 @@ import me.dioxo.estudiante.AboutUs.AboutUsFragment;
 import me.dioxo.estudiante.Authentication.Authentication;
 import me.dioxo.estudiante.CheckList.CheckListFragment;
 import me.dioxo.estudiante.Constantes;
+import me.dioxo.estudiante.Contacto.ContactoFragment;
 import me.dioxo.estudiante.MyInfo.MyInfoFragment;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.libs.ApplicationContextProvider;
@@ -35,7 +36,8 @@ public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         MyInfoFragment.OnFragmentInteractionListener ,
         CheckListFragment.OnFragmentInteractionListener,
-        AboutUsFragment.OnFragmentInteractionListener{
+        AboutUsFragment.OnFragmentInteractionListener,
+        ContactoFragment.OnFragmentInteractionListener{
 
 
     TextView email;
@@ -159,14 +161,11 @@ public class NavigationDrawer extends AppCompatActivity
             mostrarUnFragment(1);
             notShow = true;
             fragment = new AboutUsFragment();
-        }/* else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
-        }*/
-
+        } else if (id == R.id.menu_contacto) {
+            mostrarUnFragment(3);
+            notShow = true;
+            fragment = new ContactoFragment();
+        }
 
         if (notShow){
             Log.i("Navigation", "cambio de fragment");

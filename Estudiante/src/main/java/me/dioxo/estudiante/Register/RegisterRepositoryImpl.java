@@ -17,6 +17,7 @@ import java.lang.reflect.Type;
 import me.dioxo.estudiante.Estudiante;
 import me.dioxo.estudiante.Request.ChercherEstudiante;
 import me.dioxo.estudiante.Request.RegisterEstudiante;
+import me.dioxo.estudiante.Request.UpdatePersona;
 import me.dioxo.estudiante.libs.ApplicationContextProvider;
 import me.dioxo.estudiante.libs.EventBus;
 import me.dioxo.estudiante.libs.GreenRobotEventBus;
@@ -97,6 +98,41 @@ class RegisterRepositoryImpl implements RegisterRepository {
         ChercherEstudiante chercherEstudiante = new ChercherEstudiante(success, error);
         RequestQueue request = Volley.newRequestQueue(ApplicationContextProvider.getContext());
         request.add(chercherEstudiante);
+
+    }
+
+    @Override
+    public void actualizarDatos(Estudiante estudiante) {
+        Response.Listener<String> success = response -> {
+            try {
+                RegisterEvent event;
+
+                JSONObject jsonObject = new JSONObject(response);
+
+                if(jsonObject.getBoolean("result")){
+                    event = new RegisterEvent(RegisterEvent.UPDATE_SUCCESS, "Actualizaciones realizadas correctamente");
+                }else{
+                    event = new RegisterEvent(RegisterEvent.UPDATE_ERROR, "Error al momento de actualizar");
+                }
+
+                eventBus.post(event);
+
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        };
+
+        Response.ErrorListener errorListener = error -> {
+            RegisterEvent event = new RegisterEvent(RegisterEvent.UPDATE_ERROR, error.toString());
+
+            eventBus.post(event);
+        };
+
+        UpdatePersona updatePersona = new UpdatePersona(success, estudiante);
+        RequestQueue request = Volley.newRequestQueue(ApplicationContextProvider.getContext());
+        request.add(updatePersona);
 
     }
 }

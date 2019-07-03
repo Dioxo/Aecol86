@@ -40,7 +40,7 @@
     <string name="menu_send">Send</string>
     <string name="menu_mi_informacion">Mis datos</string>
     <string name="menu_about_us">Sobre nosotros</string>
-    <string name="menu_checklist">Cosas por hacer</string>
+    <string name="menu_checklist">Al momento de mi llegada</string>
     <string name="menu_contacto">Contactanos</string>
     <string name="CheckList_1">Solicito las llaves de mi residencia CROUS y una ​ attestation d\'hébergement CAF </string>
     <string name="CheckList_2">Me presento a la oficina de relaciones internacionales de mi Universidad con el pasaporte​ y la ​ Demande d’Attestation ​ OFII​ para validar mi estadía.</string>
@@ -60,5 +60,7 @@ https://www.cancilleria.gov.co/registro-consular</string>
         \n\nTenemos por objeto la promoción y la integración de la cultura colombiana en Poitiers, así como ser un centro de ayuda y apoyo a los estudiantes de nacionalidad colombiana que realicen intercambio en Poitiers .
 
         \n\nEl interés principal de la asociación es facilitar el inicio de la vida cotidiana poitevina y académica francesa.</string>
+    <string name="mensaje_ofii">Doy certeza que traigo conmigo el documento de la OFII (Demande d\'Attestation OFII)</string>
+    <string name="CheckList_13">Me suscribo a la asociación (10 euros)</string>
 
 </resources>

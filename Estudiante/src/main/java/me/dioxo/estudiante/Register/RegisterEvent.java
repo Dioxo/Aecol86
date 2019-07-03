@@ -8,6 +8,8 @@ class RegisterEvent {
     public static final int REGISTER_ERROR = 1;
     public static final int CHERCHER_SUCCESS = 2;
     public static final int CHERCHER_ERROR = 3;
+    public static final int UPDATE_SUCCESS = 4;
+    public static final int UPDATE_ERROR = 5;
 
 
     private int eventType;

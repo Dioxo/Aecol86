@@ -12,93 +12,100 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:orientation="vertical"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
 
             <CheckBox
                 android:id="@+id/checkbox1"
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_margin="5dp"
                 android:text="@string/CheckList_1" />
 
             <CheckBox
                 android:id="@+id/checkbox2"
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/CheckList_2"/>
+                android:layout_margin="5dp"
+                android:text="@string/CheckList_2" />
 
             <CheckBox
                 android:id="@+id/checkbox3"
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/CheckList_3"/>
+                android:layout_margin="5dp"
+                android:text="@string/CheckList_3" />
 
             <CheckBox
                 android:id="@+id/checkbox4"
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/CheckList_4"/>
+                android:layout_margin="5dp"
+                android:text="@string/CheckList_4" />
 
             <CheckBox
                 android:id="@+id/checkbox5"
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/CheckList_5"/>
+                android:layout_margin="5dp"
+                android:text="@string/CheckList_5" />
 
             <CheckBox
                 android:id="@+id/checkbox6"
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/CheckList_6"/>
+                android:layout_margin="5dp"
+                android:text="@string/CheckList_6" />
+
+            <CheckBox
+                android:id="@+id/checkbox13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="5dp"
+                android:text="@string/CheckList_13" />
 
             <CheckBox
                 android:id="@+id/checkbox7"
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/CheckList_7"/>
+                android:layout_margin="5dp"
+                android:text="@string/CheckList_7" />
 
             <CheckBox
                 android:id="@+id/checkbox8"
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/CheckList_8"/>
+                android:layout_margin="5dp"
+                android:text="@string/CheckList_8" />
 
             <CheckBox
                 android:id="@+id/checkbox9"
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/CheckList_9"/>
+                android:layout_margin="5dp"
+                android:text="@string/CheckList_9" />
 
             <CheckBox
                 android:id="@+id/checkbox10"
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/CheckList_10"/>
+                android:layout_margin="5dp"
+                android:text="@string/CheckList_10" />
 
             <CheckBox
                 android:id="@+id/checkbox11"
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/CheckList_11"/>
+                android:layout_margin="5dp"
+                android:text="@string/CheckList_11" />
 
             <CheckBox
                 android:id="@+id/checkbox12"
-                android:layout_margin="5dp"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/CheckList_12"/>
+                android:layout_margin="5dp"
+                android:text="@string/CheckList_12" />
         </LinearLayout>
 
     </ScrollView>
