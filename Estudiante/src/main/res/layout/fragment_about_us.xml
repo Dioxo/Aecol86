@@ -1,14 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".AboutUs.AboutUsFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
+    <ImageView
+        android:id="@+id/logo"
+        android:background="@drawable/logo"
+        android:layout_width="328dp"
+        android:layout_height="270dp"
+        android:layout_marginStart="8dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="8dp"
+        android:contentDescription="@null"/>
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@string/about_us"
+        android:layout_margin="16dp"
+        android:textSize="15dp"
+        android:textStyle="bold" />
 
-</FrameLayout>
+</LinearLayout>
