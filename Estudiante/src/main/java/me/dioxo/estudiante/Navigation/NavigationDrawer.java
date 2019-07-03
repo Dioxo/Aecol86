@@ -21,11 +21,12 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
+import java.util.Arrays;
+
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import me.dioxo.estudiante.Authentication.Authentication;
 import me.dioxo.estudiante.Constantes;
-import me.dioxo.estudiante.Estudiante;
 import me.dioxo.estudiante.MyInfo.MyInfoFragment;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.libs.ApplicationContextProvider;
@@ -36,6 +37,8 @@ public class NavigationDrawer extends AppCompatActivity
     FloatingActionButton fab;
 
     TextView email;
+
+    private Boolean[] fragmentDisplayed = new Boolean[Constantes.FRAGMENTS];
 
 
     @Override
@@ -74,6 +77,9 @@ public class NavigationDrawer extends AppCompatActivity
     }
 
     private void cargarFragmentPorDefecto() {
+        //decir que la pantalla que se muestra es el fragment[0]
+        // para no recargar la pantalla cada vez que se clickea
+        mostrarUnFragment(0);
         Fragment fragment = new MyInfoFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.screen_area, fragment)
@@ -135,19 +141,25 @@ public class NavigationDrawer extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        boolean notShow = false;
+        Fragment fragment = null;
 
-        Fragment fragment = new MyInfoFragment();
+        //si se clickea fragment[0] y todavía no se muestra en pantalla
+        if (id == R.id.menu_myInfo && !fragmentDisplayed[0]) {
 
-        if (id == R.id.myInfo) {
             // Handle the camera action
             fragment = new MyInfoFragment();
             ((MyInfoFragment) fragment).isRegister = false;
+            //decir que la pantalla que se muestra es el fragment[0]
+            // para no recargar la pantalla cada vez que se clickea
+            mostrarUnFragment(0);
+            item.setChecked(true);
+            notShow = true;
 
-
-
-        }/* else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.menu_aboutUs  && !fragmentDisplayed[1]) {
+            mostrarUnFragment(1);
+            notShow = true;
+        } /*else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_manage) {
 
@@ -158,20 +170,33 @@ public class NavigationDrawer extends AppCompatActivity
         }*/
 
 
+        if (notShow){
+            Log.i("Navigation", "cambio de fragment");
+            if (fragment != null) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.screen_area, fragment)
+                        .commit();
+            }
 
-        getSupportFragmentManager().beginTransaction()
-                .replace(R.id.screen_area, fragment)
-                .commit();
+            item.setChecked(true);
 
-        item.setChecked(true);
+            getSupportActionBar().setTitle(item.getTitle());
 
-        getSupportActionBar().setTitle(item.getTitle());
+        }
 
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
 
         return true;
+    }
+
+    private void mostrarUnFragment(int fragmentParaMostrar) {
+        //rellenar el arreglo de false
+        Arrays.fill(fragmentDisplayed, false);
+
+        //dejar una unica posicion true
+        fragmentDisplayed[fragmentParaMostrar] =  true;
     }
 
     @Override

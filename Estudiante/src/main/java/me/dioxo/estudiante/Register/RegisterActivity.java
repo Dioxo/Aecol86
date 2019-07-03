@@ -27,7 +27,7 @@ public class RegisterActivity extends AppCompatActivity implements  MyInfoFragme
 
 
 
-        MyInfoFragment fragment = (MyInfoFragment) getSupportFragmentManager().findFragmentById(R.id.myInfo);
+        MyInfoFragment fragment = (MyInfoFragment) getSupportFragmentManager().findFragmentById(R.id.menu_myInfo);
 
         if (fragment != null) {
             toolbar.setTitle("Registro");

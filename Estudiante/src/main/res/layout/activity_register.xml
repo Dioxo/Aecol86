@@ -32,7 +32,7 @@
     </LinearLayout>
 
     <fragment
-        android:id="@+id/myInfo"
+        android:id="@+id/menu_myInfo"
         android:name="me.dioxo.estudiante.MyInfo.MyInfoFragment"
         android:layout_below="@id/linear"
         android:layout_width="wrap_content"
