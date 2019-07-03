@@ -26,6 +26,7 @@ import java.util.Arrays;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import me.dioxo.estudiante.AboutUs.AboutUsFragment;
 import me.dioxo.estudiante.Authentication.Authentication;
 import me.dioxo.estudiante.CheckList.CheckListFragment;
 import me.dioxo.estudiante.Constantes;
@@ -36,7 +37,8 @@ import me.dioxo.estudiante.libs.ApplicationContextProvider;
 public class NavigationDrawer extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
         MyInfoFragment.OnFragmentInteractionListener ,
-        CheckListFragment.OnFragmentInteractionListener{
+        CheckListFragment.OnFragmentInteractionListener,
+        AboutUsFragment.OnFragmentInteractionListener{
     @BindView(R.id.fab)
     FloatingActionButton fab;
 
@@ -164,9 +166,11 @@ public class NavigationDrawer extends AppCompatActivity
             mostrarUnFragment(2);
             notShow = true;
             fragment = new CheckListFragment();
-        } /*else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.menu_aboutUs) {
+            mostrarUnFragment(1);
+            notShow = true;
+            fragment = new AboutUsFragment();
+        }/* else if (id == R.id.nav_manage) {
 
         } else if (id == R.id.nav_share) {
 
