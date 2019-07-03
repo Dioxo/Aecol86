@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.ProgressBar;
@@ -75,6 +76,8 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
     Button btnLogin;
     @BindView(R.id.progressBar)
     ProgressBar progressBar;
+    @BindView(R.id.ofii)
+    CheckBox ofii;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -92,6 +95,7 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
     public MyInfoFragment() {
         // Required empty public constructor
     }
+
     public boolean isRegister = true;
 
     public void setFragmentListener(OnFragmentInteractionListener mListener) {
@@ -134,14 +138,13 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
 
         presenter = new RegisterPresenterImpl(this);
         presenter.onCreate();
-        if(isRegister){
+        if (isRegister) {
             afficherRegister();
-        }else{
+        } else {
             afficherEstudiante();
         }
         return view;
     }
-
 
 
     @Override
@@ -149,7 +152,6 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
         super.onDestroy();
         presenter.onDestroy();
     }
-
 
 
     @Override
@@ -175,9 +177,9 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
     }
 
     public void afficherEstudiante() {
-            buscarInformacionEstudiante();
-            btnLogin.setVisibility(View.GONE);
-            edTxtPassword.setVisibility(View.GONE);
+        buscarInformacionEstudiante();
+        btnLogin.setVisibility(View.GONE);
+        edTxtPassword.setVisibility(View.GONE);
     }
 
     @OnClick(R.id.edtFecha)
@@ -218,8 +220,8 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
                 !TextUtils.isEmpty(edtResidencia.getText().toString()) &&
                 !TextUtils.isEmpty(edtCarrera.getText().toString()) &&
                 !TextUtils.isEmpty(edtFecha.getText().toString()) &&
-                !TextUtils.isEmpty(edtTransporte.getText().toString())
-        ) {
+                !TextUtils.isEmpty(edtTransporte.getText().toString()) &&
+                ofii.isChecked()) {
             return true;
         } else {
             return false;
@@ -323,6 +325,10 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
             estudiante.setInfo_estudiante(edtInfoAdicional.getText().toString());
         }
 
+        if(!ofii.isChecked()){
+            ofii.setError("Este campo es obligatorio");
+        }
+
     }
 
 
@@ -379,6 +385,11 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
     @Override
     public void afficherInformation(Estudiante estudiante) {
         mListener.onFragmentInteractionListener(estudiante.getEmail_estudiante());
+
+        StringBuilder stringBuilder = new StringBuilder();
+        stringBuilder.append(organizadorEncargado.getText()).append(" ").append(estudiante.getNombre_organizador());
+
+        organizadorEncargado.setText(stringBuilder);
         edtNombre.setText(estudiante.getNombre_estudiante());
         edtEmail.setText(estudiante.getEmail_estudiante());
         edtTelefono.setText(estudiante.getTelefono_estudiante());
@@ -458,7 +469,7 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
         return fecha;
     }
 
-    public void buscarInformacionEstudiante(){
+    public void buscarInformacionEstudiante() {
         presenter.chercherInformationEstudiante();
     }
 
