@@ -21,10 +21,10 @@
     <string name="menu_cerrar_sesion">Cerrar sesión</string>
     <string name="Ac_information_txt_nombre_estudiante">Nombre del estudiante</string>
     <string name="Ac_information_txt_telefono_emergencia">Telefono de emergencia</string>
-    <string name="Ac_information_txt_residencia">Residencia</string>
-    <string name="Ac_information_txt_carrera">Carrera</string>
-    <string name="Ac_information_txt_transporte">Transporte</string>
-    <string name="Ac_information_txt_fecha">Fecha de llegada</string>
+    <string name="Ac_information_txt_residencia">Residencia en Poitiers</string>
+    <string name="Ac_information_txt_carrera">Estudio a realizar</string>
+    <string name="Ac_information_txt_transporte">Transporte de llegada a Poitiers</string>
+    <string name="Ac_information_txt_fecha">Fecha y hora de llegada (Contemplados en su ticket de llegada a Poitiers)</string>
     <string name="Ac_information_txt_encargado">Encargado:</string>
     <string name="Ac_information_txt_opcionales">Opcionales</string>
     <string name="Ac_information_txt_hotel">Hotel Temporal</string>
