@@ -1,14 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:stretchColumns="1"
     tools:context=".Gastos.GastosFragment">
-
-    <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
+        android:layout_gravity="start"
+        android:text="Recapitulativo de gastos"
+        android:textAlignment="center"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp"/>
 
-</FrameLayout>
+    <TableRow>
+
+        <TextView android:text="Inscripción"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:layout_gravity="left"/>
+
+        <TextView android:text="242€"
+            android:layout_gravity="center"/>
+
+    </TableRow>
+
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="left"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="CVEC" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="91€" />
+
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="left"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Mutuelle*" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="5-34€/mes" />
+
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="left"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Residencia + garantía" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="476€ o 690€" />
+
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="left"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Seguro habitación*" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="36€" />
+
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="left"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Transporte*" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="1 = 1,70€ / 10 = 10€ / Año 199€" />
+
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="left"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Timbre fiscal" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="60€" />
+
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="left"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Tarjeta SIM" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="10€" />
+
+    </TableRow>
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="left"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Otros" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="150€" />
+
+    </TableRow>
+
+    <View
+        android:id="@+id/divider"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="#000" />
+
+
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="left"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Total en ​ Chambre trois fonctions" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="1.146€" />
+
+    </TableRow>
+
+
+    <TableRow>
+
+        <TextView
+            android:layout_gravity="left"
+            android:textSize="16dp"
+            android:textStyle="bold"
+            android:text="Total en ​ Studio" />
+
+        <TextView
+            android:layout_gravity="center"
+            android:text="1.361€" />
+
+    </TableRow>
+
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:text="*Gastos variables.
+                        \n**Los valores son aproximativos y no vinculan a la asociación de ninguna manera."
+        android:textSize="12dp"
+        android:textStyle="bold"/>
+
+
+</TableLayout>
