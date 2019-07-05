@@ -220,6 +220,7 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
                 ((edTxtPassword.getVisibility() == View.VISIBLE && !TextUtils.isEmpty(edTxtPassword.getText().toString())) || edTxtPassword.getVisibility() == View.GONE) &
                 !TextUtils.isEmpty(edtTelefonoEmergencia.getText().toString()) &&
                 edtTelefonoEmergencia.getText().toString().length() == 10 &&
+                !edtTelefono.getText().toString().equals(edtTelefonoEmergencia.getText().toString()) &&
                 !TextUtils.isEmpty(edtResidencia.getText().toString()) &&
                 !TextUtils.isEmpty(edtCarrera.getText().toString()) &&
                 !TextUtils.isEmpty(edtFecha.getText().toString()) &&
@@ -285,6 +286,9 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
             edtTelefonoEmergencia.setError(getString(R.string.Ac_register_error_campo_vacio));
         }
 
+        if(edtTelefono.getText().toString().equals(edtTelefonoEmergencia.getText().toString())){
+            edtTelefonoEmergencia.setError(getString(R.string.telefonos_iguales));
+        }
 
         if (!TextUtils.isEmpty(edtResidencia.getText().toString())) {
             estudiante.setResidencia_estudiante(edtResidencia.getText().toString());
