@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -18,6 +17,7 @@ import butterknife.OnClick;
 import me.dioxo.estudiante.Navigation.NavigationDrawer;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.Register.RegisterActivity;
+import me.dioxo.estudiante.RegisterOtros.RegisterOtros;
 
 public class Authentication extends AppCompatActivity implements Authentication_View {
 
@@ -106,7 +106,7 @@ public class Authentication extends AppCompatActivity implements Authentication_
         Button btnVoyFrancia = view.findViewById(R.id.btnVoyFrancia);
         Button btnEstoyFrancia = view.findViewById(R.id.btnEstoyFrancia);
 
-        btnEstoyFrancia.setOnClickListener(v -> Toast.makeText(getApplicationContext(), "ESTOY EN FRANCIA", Toast.LENGTH_LONG).show());
+        btnEstoyFrancia.setOnClickListener(v -> startActivity(new Intent(this, RegisterOtros.class)));
 
         btnVoyFrancia.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
         builder.setView(view);
