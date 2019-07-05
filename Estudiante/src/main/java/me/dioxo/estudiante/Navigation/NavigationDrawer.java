@@ -28,6 +28,7 @@ import me.dioxo.estudiante.Authentication.Authentication;
 import me.dioxo.estudiante.CheckList.CheckListFragment;
 import me.dioxo.estudiante.Constantes;
 import me.dioxo.estudiante.Contacto.ContactoFragment;
+import me.dioxo.estudiante.Gastos.GastosFragment;
 import me.dioxo.estudiante.MyInfo.MyInfoFragment;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.libs.ApplicationContextProvider;
@@ -37,7 +38,8 @@ public class NavigationDrawer extends AppCompatActivity
         MyInfoFragment.OnFragmentInteractionListener ,
         CheckListFragment.OnFragmentInteractionListener,
         AboutUsFragment.OnFragmentInteractionListener,
-        ContactoFragment.OnFragmentInteractionListener{
+        ContactoFragment.OnFragmentInteractionListener,
+        GastosFragment.OnFragmentInteractionListener{
 
 
     TextView email;
@@ -165,6 +167,10 @@ public class NavigationDrawer extends AppCompatActivity
             mostrarUnFragment(3);
             notShow = true;
             fragment = new ContactoFragment();
+        } else if (id == R.id.menu_gastos){
+            mostrarUnFragment(4);
+            notShow = true;
+            fragment = new GastosFragment();
         }
 
         if (notShow){

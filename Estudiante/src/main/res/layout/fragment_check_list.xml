@@ -15,6 +15,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="En esta sección encontrarás lo que debes hacer en las primeras semanas de haber comenzado tu vida académica en Poitiers"
+                android:textSize="20dp"
+                android:textStyle="bold"
+                android:layout_margin="10dp"/>
 
             <CheckBox
                 android:id="@+id/checkbox1"

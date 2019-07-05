@@ -21,10 +21,10 @@
     <string name="menu_cerrar_sesion">Cerrar sesión</string>
     <string name="Ac_information_txt_nombre_estudiante">Nombre del estudiante</string>
     <string name="Ac_information_txt_telefono_emergencia">Telefono de emergencia</string>
-    <string name="Ac_information_txt_residencia">Residencia</string>
-    <string name="Ac_information_txt_carrera">Carrera</string>
-    <string name="Ac_information_txt_transporte">Transporte</string>
-    <string name="Ac_information_txt_fecha">Fecha de llegada</string>
+    <string name="Ac_information_txt_residencia">Residencia en Poitiers</string>
+    <string name="Ac_information_txt_carrera">Estudio a realizar</string>
+    <string name="Ac_information_txt_transporte">Transporte de llegada a Poitiers</string>
+    <string name="Ac_information_txt_fecha">Fecha y hora de llegada (Contemplados en su ticket de llegada a Poitiers)</string>
     <string name="Ac_information_txt_encargado">Encargado:</string>
     <string name="Ac_information_txt_opcionales">Opcionales</string>
     <string name="Ac_information_txt_hotel">Hotel Temporal</string>
@@ -62,5 +62,7 @@ https://www.cancilleria.gov.co/registro-consular</string>
         \n\nEl interés principal de la asociación es facilitar el inicio de la vida cotidiana poitevina y académica francesa.</string>
     <string name="mensaje_ofii">Doy certeza que traigo conmigo el documento de la OFII (Demande d\'Attestation OFII)</string>
     <string name="CheckList_13">Me suscribo a la asociación (10 euros)</string>
+    <string name="telefonos_iguales">Error, los numero de telefono deben ser distintos</string>
+    <string name="menu_gastos">Gastos al llegar a Francia</string>
 
 </resources>

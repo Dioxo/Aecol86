@@ -21,6 +21,11 @@
             android:id="@+id/menu_contacto"
             android:icon="@drawable/ic_contacts_black_24dp"
             android:title="@string/menu_contacto" />
+
+        <item
+            android:id="@+id/menu_gastos"
+            android:icon="@drawable/ic_add_shopping_cart_black_24dp"
+            android:title="@string/menu_gastos" />
     </group>
 
 

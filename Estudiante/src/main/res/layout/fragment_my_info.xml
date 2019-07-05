@@ -42,6 +42,11 @@
                 android:text="La persona que te irá a buscar el día de tu llegada es : "
                 android:layout_marginBottom="8dp"
                 android:textStyle="italic"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="En caso de que alguno de los campos solicitados no tengan respuesta, colocar : PENDIENTE"/>
             <EditText
                 android:id="@+id/edtNombre"
                 android:layout_width="328dp"
@@ -92,6 +97,13 @@
                 android:paddingRight="10dp" />
 
 
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:text="El telefono de emergencia será usado para contactar a alguien en Colombia en caso que no nos podamos contactar contigo mientras estés viajando"
+                android:textSize="12dp"/>
+
             <EditText
                 android:id="@+id/edtTelefono_Emergencia"
                 android:layout_width="328dp"
@@ -121,6 +133,11 @@
                 android:paddingRight="10dp"
                 android:background="@drawable/edit_carrera"
                 android:paddingStart="60dp"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Las formas de llegar a Poitiers son en bus o en tren. Especificar compañía de transporte, numero de vehiculo \n Ejemplo : OuiBus, #5446 | Tren TGV voiture #12"/>
 
             <EditText
                 android:id="@+id/edtTransporte"
@@ -196,7 +213,7 @@
                 android:id="@+id/btnLogin"
                 android:layout_width="315dp"
                 android:layout_height="55dp"
-                android:layout_margin="30dp"
+                android:layout_marginTop="30dp"
                 android:background="@drawable/btn_connecter"
                 android:text="@string/Ac_login_txt_registrarse"/>
         </LinearLayout>
