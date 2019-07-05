@@ -63,5 +63,6 @@ https://www.cancilleria.gov.co/registro-consular</string>
     <string name="mensaje_ofii">Doy certeza que traigo conmigo el documento de la OFII (Demande d\'Attestation OFII)</string>
     <string name="CheckList_13">Me suscribo a la asociación (10 euros)</string>
     <string name="telefonos_iguales">Error, los numero de telefono deben ser distintos</string>
+    <string name="menu_gastos">Gastos al llegar a Francia</string>
 
 </resources>
