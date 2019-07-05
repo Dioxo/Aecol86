@@ -1,5 +1,6 @@
 package me.dioxo.estudiante.Authentication;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -7,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -17,7 +19,7 @@ import me.dioxo.estudiante.Navigation.NavigationDrawer;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.Register.RegisterActivity;
 
-public class Authentication extends AppCompatActivity implements  Authentication_View {
+public class Authentication extends AppCompatActivity implements Authentication_View {
 
     @BindView(R.id.edTxtUser)
     EditText edTxtUser;
@@ -65,7 +67,7 @@ public class Authentication extends AppCompatActivity implements  Authentication
         Intent intent = new Intent(this, NavigationDrawer.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
-        Log.i("Extras",edTxtUser.getText().toString());
+        Log.i("Extras", edTxtUser.getText().toString());
         intent.putExtra("email", edTxtUser.getText().toString());
         startActivity(intent);
     }
@@ -98,8 +100,19 @@ public class Authentication extends AppCompatActivity implements  Authentication
     }
 
     @OnClick(R.id.register)
-    public void onRegisterClicked()
-    {
-        startActivity(new Intent(this, RegisterActivity.class));
+    public void onRegisterClicked() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.register_dialog, null);
+        Button btnVoyFrancia = view.findViewById(R.id.btnVoyFrancia);
+        Button btnEstoyFrancia = view.findViewById(R.id.btnEstoyFrancia);
+
+        btnEstoyFrancia.setOnClickListener(v -> Toast.makeText(getApplicationContext(), "ESTOY EN FRANCIA", Toast.LENGTH_LONG).show());
+
+        btnVoyFrancia.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
+        builder.setView(view);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
     }
+
 }
