@@ -30,6 +30,7 @@ import me.dioxo.estudiante.Constantes;
 import me.dioxo.estudiante.Contacto.ContactoFragment;
 import me.dioxo.estudiante.Gastos.GastosFragment;
 import me.dioxo.estudiante.MyInfo.MyInfoFragment;
+import me.dioxo.estudiante.OrganizadoresList.OrganizadoresListFragment;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.libs.ApplicationContextProvider;
 
@@ -39,7 +40,8 @@ public class NavigationDrawer extends AppCompatActivity
         CheckListFragment.OnFragmentInteractionListener,
         AboutUsFragment.OnFragmentInteractionListener,
         ContactoFragment.OnFragmentInteractionListener,
-        GastosFragment.OnFragmentInteractionListener{
+        GastosFragment.OnFragmentInteractionListener,
+        OrganizadoresListFragment.OnFragmentInteractionListener {
 
 
     TextView email;
@@ -171,7 +173,12 @@ public class NavigationDrawer extends AppCompatActivity
             mostrarUnFragment(4);
             notShow = true;
             fragment = new GastosFragment();
+        }else if (id == R.id.menu_organizadores){
+            mostrarUnFragment(5);
+            notShow = true;
+            fragment = new OrganizadoresListFragment();
         }
+
 
         if (notShow){
             Log.i("Navigation", "cambio de fragment");
