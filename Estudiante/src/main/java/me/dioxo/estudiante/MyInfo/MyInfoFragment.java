@@ -4,6 +4,7 @@ import android.app.DatePickerDialog;
 import android.app.TimePickerDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -29,11 +30,14 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.dioxo.estudiante.Authentication.Authentication;
+import me.dioxo.estudiante.Constantes;
 import me.dioxo.estudiante.Estudiante;
+import me.dioxo.estudiante.NavigationOtro.NavigationOtro;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.Register.RegisterPresenter;
 import me.dioxo.estudiante.Register.RegisterPresenterImpl;
 import me.dioxo.estudiante.Register.RegisterView;
+import me.dioxo.estudiante.libs.ApplicationContextProvider;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -148,6 +152,15 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
         return view;
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (isRegister) {
+            afficherRegister();
+        } else {
+            afficherEstudiante();
+        }
+    }
 
     @Override
     public void onDestroy() {
@@ -395,23 +408,40 @@ public class MyInfoFragment extends Fragment implements RegisterView, DatePicker
     @Override
     public void afficherInformation(Estudiante estudiante) {
         this.estudiante = estudiante;
+        Log.i("MyInfo", estudiante.toString());
+        if(estudiante.getActivo_estudiante().equals("1")){
+            Log.i("MyInfo", "mostrar estudiante");
 
-        mListener.onFragmentInteractionListener(estudiante.getEmail_estudiante());
+            mListener.onFragmentInteractionListener(estudiante.getEmail_estudiante());
 
-        StringBuilder stringBuilder = new StringBuilder();
-        stringBuilder.append(organizadorEncargado.getText()).append(" ").append(estudiante.getNombre_organizador());
+            StringBuilder stringBuilder = new StringBuilder();
+            stringBuilder.append(organizadorEncargado.getText()).append(" ").append(estudiante.getNombre_organizador());
 
-        organizadorEncargado.setText(stringBuilder);
-        edtNombre.setText(estudiante.getNombre_estudiante());
-        edtEmail.setText(estudiante.getEmail_estudiante());
-        edtTelefono.setText(estudiante.getTelefono_estudiante());
-        edtTelefonoEmergencia.setText(estudiante.getTelefono_emergencia());
-        edtResidencia.setText(estudiante.getResidencia_estudiante());
-        edtCarrera.setText(estudiante.getCarrera_estudiante());
-        edtFecha.setText(estudiante.getFecha_estudiante().substring(0, estudiante.getFecha_estudiante().length() - 3));
-        edtTransporte.setText(estudiante.getTransporte_estudiante());
-        edtHotel.setText(estudiante.getHotel_estudiante());
-        edtInfoAdicional.setText(estudiante.getInfo_estudiante());
+            organizadorEncargado.setText(stringBuilder);
+            edtNombre.setText(estudiante.getNombre_estudiante());
+            edtEmail.setText(estudiante.getEmail_estudiante());
+            edtTelefono.setText(estudiante.getTelefono_estudiante());
+            edtTelefonoEmergencia.setText(estudiante.getTelefono_emergencia());
+            edtResidencia.setText(estudiante.getResidencia_estudiante());
+            edtCarrera.setText(estudiante.getCarrera_estudiante());
+            edtFecha.setText(estudiante.getFecha_estudiante().substring(0, estudiante.getFecha_estudiante().length() - 3));
+            edtTransporte.setText(estudiante.getTransporte_estudiante());
+            edtHotel.setText(estudiante.getHotel_estudiante());
+            edtInfoAdicional.setText(estudiante.getInfo_estudiante());
+        }else{
+            Log.i("MyInfo", "irse al otro navigation");
+            SharedPreferences settings = ApplicationContextProvider.getContext().getSharedPreferences(Constantes.ID_USER, 0);
+            SharedPreferences.Editor editor = settings.edit();
+            editor.putString(Constantes.TIPO_SESION, Constantes.SESION_OTRO);
+            editor.apply();
+
+            Intent intent = new Intent(getContext(), NavigationOtro.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+            intent.putExtra("email", estudiante.getEmail_estudiante());
+            startActivity(intent);
+        }
+
     }
 
     @Override

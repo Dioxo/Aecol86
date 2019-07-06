@@ -69,6 +69,7 @@ class RegisterRepositoryImpl implements RegisterRepository {
         Response.Listener<String> success = response -> {
 
             RegisterEvent event;
+            Log.i("MyInfo", response);
 
             // si l'actualisation est effectuée
 
