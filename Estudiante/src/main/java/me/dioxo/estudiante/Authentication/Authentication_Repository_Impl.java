@@ -45,7 +45,12 @@ public class Authentication_Repository_Impl implements Authentication_Repository
 
                 if(encriptar.validatePassword(mdp , password)){
                     storeUser_id(jsonObject.getString("idEstudiante"));
-                    event = new Authentication_Event(Authentication_Event.AUTHENTICATION_OKAY);
+
+                    if(jsonObject.getString("fecha_estudiante").equals("")){
+                        event = new Authentication_Event(Authentication_Event.AUTHENTICATION_OTRO_OKAY);
+                    }else{
+                        event = new Authentication_Event(Authentication_Event.AUTHENTICATION_OKAY);
+                    }
                 }else{
                     event = new  Authentication_Event(Authentication_Event.AUTHENTICATION_ERROR,
                             Authentication_Event.AUTHENTICATION_ERROR_MESSAGE );

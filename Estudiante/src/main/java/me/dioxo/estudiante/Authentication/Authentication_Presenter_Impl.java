@@ -63,6 +63,12 @@ public class Authentication_Presenter_Impl implements Authentication_Presenter {
                     view.hideProgressBar();
                 }
                 break;
+
+            case Authentication_Event.AUTHENTICATION_OTRO_OKAY:
+                if(view != null){
+                    view.goToOtroNextPage();
+                }
+                break;
         }
     }
 

@@ -9,6 +9,7 @@ public class Authentication_Event {
 
     public static final  int AUTHENTICATION_ERROR = 1;
     public static final String AUTHENTICATION_ERROR_MESSAGE = ApplicationContextProvider.getContext().getString(R.string.activity_login_error_message);
+    public static final int AUTHENTICATION_OTRO_OKAY = 2;
 
     private int eventType;
     private String message;

@@ -88,6 +88,11 @@ public class Authentication extends AppCompatActivity implements Authentication_
         edTxtPassword.setError(error);
     }
 
+    @Override
+    public void goToOtroNextPage() {
+
+    }
+
     private void effacerText() {
         edTxtPassword.setText("");
         edTxtUser.setText("");
