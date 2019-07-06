@@ -2,7 +2,6 @@ package me.dioxo.estudiante.Authentication;
 
 
 import android.content.SharedPreferences;
-import android.util.Log;
 
 import org.greenrobot.eventbus.Subscribe;
 
@@ -76,16 +75,30 @@ public class Authentication_Presenter_Impl implements Authentication_Presenter {
     public void checkAlreadyConnected() {
         SharedPreferences settings = ApplicationContextProvider.getContext().getSharedPreferences(Constantes.ID_USER, 0);
         String id_user = settings.getString(Constantes.ID_USER,null);
+        String tipoSesion = settings.getString(Constantes.TIPO_SESION,null);
 
         if(id_user  != null) {
-            Log.i("Session LOl" , "Already Connected" );
-            Log.i("Session LOl" , id_user);
 
-            if (view != null) {
-                view.enableInputs();
-                view.hideProgressBar();
-                view.goToNextPage();
+            switch (tipoSesion){
+                case Constantes.SESION_ESTUDIANTE:
+                    if (view != null) {
+                        view.enableInputs();
+                        view.hideProgressBar();
+                        view.goToNextPage();
+                    }
+
+                    break;
+
+                case Constantes.SESION_OTRO:
+                    if (view != null) {
+                        view.enableInputs();
+                        view.hideProgressBar();
+                        view.goToOtroNextPage();
+                    }
+                    break;
+
             }
+
         }
 
     }

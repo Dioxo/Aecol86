@@ -44,12 +44,15 @@ public class Authentication_Repository_Impl implements Authentication_Repository
                 Encriptar_Interface encriptar = new Encriptar();
 
                 if(encriptar.validatePassword(mdp , password)){
-                    storeUser_id(jsonObject.getString("idEstudiante"));
 
                     if(jsonObject.getString("fecha_estudiante").equals("")){
                         event = new Authentication_Event(Authentication_Event.AUTHENTICATION_OTRO_OKAY);
+                        storeUser_id(jsonObject.getString("idEstudiante"), false);
+
                     }else{
                         event = new Authentication_Event(Authentication_Event.AUTHENTICATION_OKAY);
+                        storeUser_id(jsonObject.getString("idEstudiante"), true);
+
                     }
                 }else{
                     event = new  Authentication_Event(Authentication_Event.AUTHENTICATION_ERROR,
@@ -79,10 +82,16 @@ public class Authentication_Repository_Impl implements Authentication_Repository
         request.add(loginRequest);
     }
 
-    private void storeUser_id(String id_user) {
+    private void storeUser_id(String id_user, boolean sesionEstudiante) {
         SharedPreferences settings = ApplicationContextProvider.getContext().getSharedPreferences(Constantes.ID_USER, 0);
         SharedPreferences.Editor editor = settings.edit();
         editor.putString(Constantes.ID_USER, id_user);
+
+        if(sesionEstudiante){
+            editor.putString(Constantes.TIPO_SESION, Constantes.SESION_ESTUDIANTE);
+        }else {
+            editor.putString(Constantes.TIPO_SESION, Constantes.SESION_OTRO);
+        }
 
         // Commit the edits!
         editor.apply();
