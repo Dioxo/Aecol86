@@ -13,7 +13,11 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".RegisterOtros.RegisterOtros"></activity>
+        <activity
+            android:name=".NavigationOtro.NavigationOtro"
+            android:label="@string/title_activity_navigation_otro"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".RegisterOtros.RegisterOtros" />
         <activity
             android:name=".Navigation.NavigationDrawer"
             android:label="@string/title_activity_navigation_drawer"
