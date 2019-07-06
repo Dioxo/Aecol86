@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +40,7 @@ public class NavigationOtro extends AppCompatActivity
         OrganizadoresListFragment.OnFragmentInteractionListener{
 
     private Boolean[] fragmentDisplayed = new Boolean[Constantes.FRAGMENTS];
+    TextView email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +56,27 @@ public class NavigationOtro extends AppCompatActivity
         drawer.addDrawerListener(toggle);
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
+
+        View headerView = navigationView.getHeaderView(0);
+        email = (TextView) headerView.findViewById(R.id.txtEmailUser);
+        Intent intent = getIntent();
+
+
+        String emailOrganizador = intent.getStringExtra("email");
+        email.setText(emailOrganizador);
+
+        cargarFragmentPorDefecto();
+    }
+    private void cargarFragmentPorDefecto() {
+        //decir que la pantalla que se muestra es el fragment[0]
+        // para no recargar la pantalla cada vez que se clickea
+        mostrarUnFragment(0);
+        Fragment fragment = new AboutUsFragment();
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.screen_area, fragment)
+                .commit();
+
+        getSupportActionBar().setTitle("Sobre nosotros");
     }
 
     @Override

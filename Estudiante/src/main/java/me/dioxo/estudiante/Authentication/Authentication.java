@@ -15,6 +15,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.dioxo.estudiante.Navigation.NavigationDrawer;
+import me.dioxo.estudiante.NavigationOtro.NavigationOtro;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.Register.RegisterActivity;
 import me.dioxo.estudiante.RegisterOtros.RegisterOtros;
@@ -90,7 +91,12 @@ public class Authentication extends AppCompatActivity implements Authentication_
 
     @Override
     public void goToOtroNextPage() {
+        Intent intent = new Intent(this, NavigationOtro.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
+        Log.i("Extras", edTxtUser.getText().toString());
+        intent.putExtra("email", edTxtUser.getText().toString());
+        startActivity(intent);
     }
 
     private void effacerText() {
