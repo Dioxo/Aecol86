@@ -9,4 +9,6 @@ public interface RegisterRepository {
     void chercherInformationEstudiante();
 
     void actualizarDatos(Estudiante estudiante);
+
+    void registerOtro(Estudiante estudiante);
 }

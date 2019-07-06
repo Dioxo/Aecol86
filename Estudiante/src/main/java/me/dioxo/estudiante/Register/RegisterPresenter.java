@@ -16,4 +16,6 @@ public interface RegisterPresenter {
     void chercherInformationEstudiante();
 
     void actualizarDatos(Estudiante estudiante);
+
+    void registerOtro(Estudiante estudiante);
 }

@@ -80,4 +80,9 @@ public class RegisterPresenterImpl implements RegisterPresenter {
     public void actualizarDatos(Estudiante estudiante) {
         repository.actualizarDatos(estudiante);
     }
+
+    @Override
+    public void registerOtro(Estudiante estudiante) {
+        repository.registerOtro(estudiante);
+    }
 }
