@@ -1,28 +1,43 @@
 package me.dioxo.estudiante.NavigationOtro;
 
+import android.content.Intent;
+import android.content.SharedPreferences;
+import android.net.Uri;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
-import android.view.View;
-
-import androidx.core.view.GravityCompat;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-
+import android.util.Log;
+import android.view.Menu;
 import android.view.MenuItem;
+
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
 
 import com.google.android.material.navigation.NavigationView;
 
-import androidx.drawerlayout.widget.DrawerLayout;
+import java.util.Arrays;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-
-import android.view.Menu;
+import me.dioxo.estudiante.AboutUs.AboutUsFragment;
+import me.dioxo.estudiante.Authentication.Authentication;
+import me.dioxo.estudiante.CheckList.CheckListFragment;
+import me.dioxo.estudiante.Constantes;
+import me.dioxo.estudiante.Contacto.ContactoFragment;
+import me.dioxo.estudiante.Gastos.GastosFragment;
+import me.dioxo.estudiante.OrganizadoresList.OrganizadoresListFragment;
+import me.dioxo.estudiante.R;
+import me.dioxo.estudiante.libs.ApplicationContextProvider;
 
 public class NavigationOtro extends AppCompatActivity
-        implements NavigationView.OnNavigationItemSelectedListener {
+        implements NavigationView.OnNavigationItemSelectedListener,
+        CheckListFragment.OnFragmentInteractionListener,
+        AboutUsFragment.OnFragmentInteractionListener,
+        ContactoFragment.OnFragmentInteractionListener,
+        GastosFragment.OnFragmentInteractionListener,
+        OrganizadoresListFragment.OnFragmentInteractionListener{
+
+    private Boolean[] fragmentDisplayed = new Boolean[Constantes.FRAGMENTS];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,14 +45,7 @@ public class NavigationOtro extends AppCompatActivity
         setContentView(R.layout.activity_navigation_otro);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -71,12 +79,26 @@ public class NavigationOtro extends AppCompatActivity
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
 
+
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.menu_logout) {
+            cerrarSesion();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    private void cerrarSesion() {
+        SharedPreferences settings = ApplicationContextProvider.getContext().getSharedPreferences(Constantes.ID_USER, 0);
+        SharedPreferences.Editor editor = settings.edit();
+        editor.putString(Constantes.ID_USER, null);
+        // Commit the edits!
+        editor.apply();
+
+        Intent intent = new Intent(this, Authentication.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -84,23 +106,64 @@ public class NavigationOtro extends AppCompatActivity
     public boolean onNavigationItemSelected(MenuItem item) {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
+        boolean notShow = false;
+        Fragment fragment = null;
 
-        if (id == R.id.nav_home) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
+        //si se clickea fragment[0] y todavía no se muestra en pantalla
+        if (id == R.id.menu_checklist  && !fragmentDisplayed[2]) {
+            mostrarUnFragment(2);
+            notShow = true;
+            fragment = new CheckListFragment();
+        } else if (id == R.id.menu_aboutUs) {
+            mostrarUnFragment(1);
+            notShow = true;
+            fragment = new AboutUsFragment();
+        } else if (id == R.id.menu_contacto) {
+            mostrarUnFragment(3);
+            notShow = true;
+            fragment = new ContactoFragment();
+        } else if (id == R.id.menu_gastos){
+            mostrarUnFragment(4);
+            notShow = true;
+            fragment = new GastosFragment();
+        }else if (id == R.id.menu_organizadores){
+            mostrarUnFragment(5);
+            notShow = true;
+            fragment = new OrganizadoresListFragment();
+        }
 
-        } else if (id == R.id.nav_slideshow) {
 
-        } else if (id == R.id.nav_tools) {
+        if (notShow){
+            Log.i("Navigation", "cambio de fragment");
+            if (fragment != null) {
+                getSupportFragmentManager().beginTransaction()
+                        .replace(R.id.screen_area, fragment)
+                        .commit();
+            }
 
-        } else if (id == R.id.nav_share) {
+            item.setChecked(true);
 
-        } else if (id == R.id.nav_send) {
+            getSupportActionBar().setTitle(item.getTitle());
 
         }
 
+
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
+
         return true;
+    }
+
+    private void mostrarUnFragment(int fragmentParaMostrar) {
+        //rellenar el arreglo de false
+        Arrays.fill(fragmentDisplayed, false);
+
+        //dejar una unica posicion true
+        fragmentDisplayed[fragmentParaMostrar] =  true;
+    }
+
+    @Override
+    public void onFragmentInteraction(Uri uri) {
+
     }
 }
