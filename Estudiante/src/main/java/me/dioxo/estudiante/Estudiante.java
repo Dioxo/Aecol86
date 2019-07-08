@@ -66,7 +66,9 @@ public class Estudiante implements Serializable {
     @SerializedName("info_estudiante")
     @Expose
     private String info_estudiante;
-
+    @SerializedName("activo_estudiante")
+    @Expose
+    private String activo_estudiante;
     private String password;
 
 
@@ -192,6 +194,14 @@ public class Estudiante implements Serializable {
         } catch (InvalidKeySpecException e) {
             e.printStackTrace();
         }
+    }
+
+    public String getActivo_estudiante() {
+        return activo_estudiante;
+    }
+
+    public void setActivo_estudiante(String activo_estudiante) {
+        this.activo_estudiante = activo_estudiante;
     }
 
     @Override

@@ -5,17 +5,13 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/menu_myInfo"
-            android:icon="@drawable/ic_person_black_24dp"
-            android:title="@string/menu_mi_informacion" />
-        <item
             android:id="@+id/menu_aboutUs"
             android:icon="@drawable/ic_info_black_24dp"
             android:title="@string/menu_about_us" />
         <item
             android:id="@+id/menu_checklist"
             android:icon="@drawable/liste"
-            android:title="@string/menu_checklist" />
+            android:title="@string/menu_checklist_otro" />
 
         <item
             android:id="@+id/menu_contacto"
@@ -27,10 +23,6 @@
             android:icon="@drawable/ic_add_shopping_cart_black_24dp"
             android:title="@string/menu_gastos" />
 
-        <item
-            android:id="@+id/menu_organizadores"
-            android:icon="@drawable/ic_face_black_24dp"
-            android:title="@string/menu_organizadores" />
     </group>
 
 

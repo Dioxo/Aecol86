@@ -1,5 +1,6 @@
 package me.dioxo.estudiante.Authentication;
 
+import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,10 +15,12 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import me.dioxo.estudiante.Navigation.NavigationDrawer;
+import me.dioxo.estudiante.NavigationOtro.NavigationOtro;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.Register.RegisterActivity;
+import me.dioxo.estudiante.RegisterOtros.RegisterOtros;
 
-public class Authentication extends AppCompatActivity implements  Authentication_View {
+public class Authentication extends AppCompatActivity implements Authentication_View {
 
     @BindView(R.id.edTxtUser)
     EditText edTxtUser;
@@ -65,7 +68,7 @@ public class Authentication extends AppCompatActivity implements  Authentication
         Intent intent = new Intent(this, NavigationDrawer.class);
         intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
 
-        Log.i("Extras",edTxtUser.getText().toString());
+        Log.i("Extras", edTxtUser.getText().toString());
         intent.putExtra("email", edTxtUser.getText().toString());
         startActivity(intent);
     }
@@ -86,6 +89,16 @@ public class Authentication extends AppCompatActivity implements  Authentication
         edTxtPassword.setError(error);
     }
 
+    @Override
+    public void goToOtroNextPage() {
+        Intent intent = new Intent(this, NavigationOtro.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+
+        Log.i("Extras", edTxtUser.getText().toString());
+        intent.putExtra("email", edTxtUser.getText().toString());
+        startActivity(intent);
+    }
+
     private void effacerText() {
         edTxtPassword.setText("");
         edTxtUser.setText("");
@@ -98,8 +111,19 @@ public class Authentication extends AppCompatActivity implements  Authentication
     }
 
     @OnClick(R.id.register)
-    public void onRegisterClicked()
-    {
-        startActivity(new Intent(this, RegisterActivity.class));
+    public void onRegisterClicked() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.register_dialog, null);
+        Button btnVoyFrancia = view.findViewById(R.id.btnVoyFrancia);
+        Button btnEstoyFrancia = view.findViewById(R.id.btnEstoyFrancia);
+
+        btnEstoyFrancia.setOnClickListener(v -> startActivity(new Intent(this, RegisterOtros.class)));
+
+        btnVoyFrancia.setOnClickListener(v -> startActivity(new Intent(this, RegisterActivity.class)));
+        builder.setView(view);
+        AlertDialog alertDialog = builder.create();
+        alertDialog.show();
+
     }
+
 }

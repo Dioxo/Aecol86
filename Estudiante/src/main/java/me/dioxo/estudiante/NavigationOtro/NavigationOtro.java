@@ -1,4 +1,4 @@
-package me.dioxo.estudiante.Navigation;
+package me.dioxo.estudiante.NavigationOtro;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,38 +21,29 @@ import com.google.android.material.navigation.NavigationView;
 
 import java.util.Arrays;
 
-import butterknife.ButterKnife;
 import me.dioxo.estudiante.AboutUs.AboutUsFragment;
 import me.dioxo.estudiante.Authentication.Authentication;
 import me.dioxo.estudiante.CheckList.CheckListFragment;
 import me.dioxo.estudiante.Constantes;
 import me.dioxo.estudiante.Contacto.ContactoFragment;
 import me.dioxo.estudiante.Gastos.GastosFragment;
-import me.dioxo.estudiante.MyInfo.MyInfoFragment;
-import me.dioxo.estudiante.OrganizadoresList.OrganizadoresListFragment;
 import me.dioxo.estudiante.R;
 import me.dioxo.estudiante.libs.ApplicationContextProvider;
 
-public class NavigationDrawer extends AppCompatActivity
+public class NavigationOtro extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener,
-        MyInfoFragment.OnFragmentInteractionListener ,
         CheckListFragment.OnFragmentInteractionListener,
         AboutUsFragment.OnFragmentInteractionListener,
         ContactoFragment.OnFragmentInteractionListener,
-        GastosFragment.OnFragmentInteractionListener,
-        OrganizadoresListFragment.OnFragmentInteractionListener {
-
-
-    TextView email;
+        GastosFragment.OnFragmentInteractionListener{
 
     private Boolean[] fragmentDisplayed = new Boolean[Constantes.FRAGMENTS];
-
+    TextView email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_navigation_drawer);
-        ButterKnife.bind(this);
+        setContentView(R.layout.activity_navigation_otro);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -65,7 +55,6 @@ public class NavigationDrawer extends AppCompatActivity
         toggle.syncState();
         navigationView.setNavigationItemSelectedListener(this);
 
-
         View headerView = navigationView.getHeaderView(0);
         email = (TextView) headerView.findViewById(R.id.txtEmailUser);
         Intent intent = getIntent();
@@ -76,19 +65,16 @@ public class NavigationDrawer extends AppCompatActivity
 
         cargarFragmentPorDefecto();
     }
-
     private void cargarFragmentPorDefecto() {
         //decir que la pantalla que se muestra es el fragment[0]
         // para no recargar la pantalla cada vez que se clickea
         mostrarUnFragment(0);
-        Fragment fragment = new MyInfoFragment();
+        Fragment fragment = new AboutUsFragment();
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.screen_area, fragment)
                 .commit();
 
-        getSupportActionBar().setTitle("Mis datos");
-        ((MyInfoFragment) fragment).isRegister = false;
-
+        getSupportActionBar().setTitle("Sobre nosotros");
     }
 
     @Override
@@ -104,7 +90,7 @@ public class NavigationDrawer extends AppCompatActivity
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.navigation_drawer, menu);
+        getMenuInflater().inflate(R.menu.navigation_otro, menu);
         return true;
     }
 
@@ -114,6 +100,7 @@ public class NavigationDrawer extends AppCompatActivity
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
         int id = item.getItemId();
+
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.menu_logout) {
@@ -136,7 +123,6 @@ public class NavigationDrawer extends AppCompatActivity
         startActivity(intent);
     }
 
-
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -146,18 +132,7 @@ public class NavigationDrawer extends AppCompatActivity
         Fragment fragment = null;
 
         //si se clickea fragment[0] y todavía no se muestra en pantalla
-        if (id == R.id.menu_myInfo && !fragmentDisplayed[0]) {
-
-            // Handle the camera action
-            fragment = new MyInfoFragment();
-            ((MyInfoFragment) fragment).isRegister = false;
-            //decir que la pantalla que se muestra es el fragment[0]
-            // para no recargar la pantalla cada vez que se clickea
-            mostrarUnFragment(0);
-            item.setChecked(true);
-            notShow = true;
-
-        } else if (id == R.id.menu_checklist  && !fragmentDisplayed[2]) {
+        if (id == R.id.menu_checklist  && !fragmentDisplayed[2]) {
             mostrarUnFragment(2);
             notShow = true;
             fragment = new CheckListFragment();
@@ -173,10 +148,6 @@ public class NavigationDrawer extends AppCompatActivity
             mostrarUnFragment(4);
             notShow = true;
             fragment = new GastosFragment();
-        }else if (id == R.id.menu_organizadores){
-            mostrarUnFragment(5);
-            notShow = true;
-            fragment = new OrganizadoresListFragment();
         }
 
 
@@ -207,20 +178,6 @@ public class NavigationDrawer extends AppCompatActivity
 
         //dejar una unica posicion true
         fragmentDisplayed[fragmentParaMostrar] =  true;
-    }
-
-    @Override
-    public void onAttachFragment(@NonNull Fragment fragment) {
-        Log.i("MyInfo", "FragmentAttached");
-        if (fragment instanceof MyInfoFragment) {
-            MyInfoFragment headlinesFragment = (MyInfoFragment) fragment;
-            headlinesFragment.setFragmentListener(this);
-        }
-    }
-
-    @Override
-    public void onFragmentInteractionListener(String email){
-        this.email.setText(email);
     }
 
     @Override

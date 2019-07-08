@@ -64,5 +64,9 @@ https://www.cancilleria.gov.co/registro-consular</string>
     <string name="CheckList_13">Me suscribo a la asociación (10 euros)</string>
     <string name="telefonos_iguales">Error, los numero de telefono deben ser distintos</string>
     <string name="menu_gastos">Gastos al llegar a Francia</string>
+    <string name="menu_organizadores">Lista de organizadores</string>
+    <string name="title_activity_navigation_otro">NavigationOtro</string>
+    <string name="action_settings">Settings</string>
+    <string name="menu_checklist_otro">Procesos a hacer</string>
 
 </resources>

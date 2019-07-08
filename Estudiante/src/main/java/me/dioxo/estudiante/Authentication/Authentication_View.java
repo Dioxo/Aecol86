@@ -13,4 +13,5 @@ public interface Authentication_View {
 
     void loginError(String error);
 
+    void goToOtroNextPage();
 }

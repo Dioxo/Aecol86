@@ -17,6 +17,7 @@ import java.lang.reflect.Type;
 import me.dioxo.estudiante.Estudiante;
 import me.dioxo.estudiante.Request.ChercherEstudiante;
 import me.dioxo.estudiante.Request.RegisterEstudiante;
+import me.dioxo.estudiante.Request.RegisterOtro;
 import me.dioxo.estudiante.Request.UpdatePersona;
 import me.dioxo.estudiante.libs.ApplicationContextProvider;
 import me.dioxo.estudiante.libs.EventBus;
@@ -68,6 +69,7 @@ class RegisterRepositoryImpl implements RegisterRepository {
         Response.Listener<String> success = response -> {
 
             RegisterEvent event;
+            Log.i("MyInfo", response);
 
             // si l'actualisation est effectuée
 
@@ -134,5 +136,37 @@ class RegisterRepositoryImpl implements RegisterRepository {
         RequestQueue request = Volley.newRequestQueue(ApplicationContextProvider.getContext());
         request.add(updatePersona);
 
+    }
+
+    @Override
+    public void registerOtro(Estudiante estudiante) {
+        Log.i("Register", "repository");
+        Response.Listener<String> success = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                try {
+                    JSONObject jsonObject = new JSONObject(response);
+                    Log.i("Register", response);
+
+                    RegisterEvent registerEvent;
+
+                    // si l'actualisation est effectuée
+                    if(jsonObject.getBoolean("result")){
+                        registerEvent = new RegisterEvent(RegisterEvent.REGISTER_SUCCESS);
+                    }else{
+                        registerEvent = new RegisterEvent(RegisterEvent.REGISTER_ERROR);
+                    }
+
+                    eventBus.post(registerEvent);
+
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        };
+
+        RegisterOtro registerOtro = new RegisterOtro(success, estudiante);
+        RequestQueue request = Volley.newRequestQueue(ApplicationContextProvider.getContext());
+        request.add(registerOtro);
     }
 }
